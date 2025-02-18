@@ -25,35 +25,62 @@
   </head>
   <body>
     <header>
-      <nav class="navbar bg-body-tertiary">
+      <nav class="navbar navbar-expand-md bg-primary-subtle">
         <div class="container-fluid">
-          <span class="navbar-brand mb-0 h1">Fitness Tracker</span>
-          <form class="d-none d-md-flex">
-            <button class="btn btn-outline-success me-2" type="button">
-              Main button
-            </button>
-            <button class="btn btn-outline-success me-2" type="button">
-              Main button
-            </button>
-            <button class="btn btn-outline-success me-2" type="button">
-              Main button
-            </button>
-            <button class="btn btn-outline-success me-2" type="button">
-              Main button
-            </button>
-          </form>
-          <form class="d-none d-md-flex" role="search">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button class="btn btn-outline-primary" type="submit">
-              <i class="bi bi-search"></i
-              ><span class="visually-hidden">Search</span>
-            </button>
-          </form>
+          <a class="navbar-brand" href="#">Fitness Tracker</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarScroll"
+            aria-controls="navbarScroll"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0">
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Menu
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item" href="#">Profile</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#">Rank</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#">History</a>
+                  </li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li>
+                    <a class="dropdown-item" href="#">Workouts</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <form class="d-none d-md-flex" role="search">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button class="btn btn-outline-primary" type="submit">
+                <i class="bi bi-search"></i
+                ><span class="visually-hidden">Search</span>
+              </button>
+            </form>
+          </div>
         </div>
       </nav>
     </header>
@@ -63,15 +90,12 @@
         <div class="col-4">
           <p>col1</p>
           <div class="card mb-2">
-            <h3 class="card-header">Profile card header</h3>
             <div class="card-body">
+              <p class="card-text">this is random text</p>
               <p class="card-text">this is random text</p>
             </div>
-          </div>
-          <div class="card mb-2">
-            <h3 class="card-header">rank card header</h3>
             <div class="card-body">
-              <p class="card-text">this is random text</p>
+              <p>this is randm text</p>
             </div>
           </div>
         </div>
@@ -89,20 +113,6 @@
               <div class="card-body">
                 <p class="card-text">this is random text</p>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container-fluid mt-2">
-      <div class="row">
-        <p>row2</p>
-        <div class="col-4">
-          <p>col1</p>
-        </div>
-        <div class="col-8">
-          <p>col2</p>
-          <div class="col-8">
             </div>
           </div>
         </div>
