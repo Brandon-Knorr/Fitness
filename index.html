@@ -346,11 +346,11 @@
                 <div class="collapse" id="workoutForm">
                   <div class="card card-body">
                     <form>
-                      <label for="workoutName" class="form-label"
+                      <label for="workoutName" class="form-label mb-1"
                         >Exercise:</label
                       >
                       <select
-                        class="form-select"
+                        class="form-select mb-2"
                         for="workoutName"
                         aria-label="Default select example"
                       >
@@ -363,6 +363,19 @@
                         <option value="6">Deadlift</option>
                         <option value="7">Pull-Ups</option>
                         <option value="8">Push-ups</option>
+                      </select>
+                      <label for="workoutSets" class="form-label">Sets:</label>
+                      <select
+                        class="form-select"
+                        for="workoutSets"
+                        aria-label="Default select example"
+                      >
+                        <option selected disabled>Number of sets</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
                       </select>
                     </form>
                   </div>
