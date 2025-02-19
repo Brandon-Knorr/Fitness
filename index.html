@@ -24,8 +24,8 @@
     ></script>
   </head>
   <body>
-    <header>
-      <nav class="navbar navbar-expand-md bg-primary-subtle">
+    <header class="sticky-top">
+      <nav class="navbar navbar-expand-md bg-body-tertiary">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">Fitness Tracker</a>
           <button
@@ -68,7 +68,7 @@
                 </ul>
               </li>
             </ul>
-            <form class="d-none d-md-flex" role="search">
+            <form class="d-none d-md-flex me" role="search">
               <input
                 class="form-control me-2"
                 type="search"
@@ -84,42 +84,13 @@
         </div>
       </nav>
     </header>
-    <div class="container-fluid mt-2">
-      <div class="row">
-        <p>row1</p>
-        <div class="col-4">
-          <p>col1</p>
-          <div class="card mb-2">
-            <div class="card-body">
-              <p class="card-text">this is random text</p>
-              <p class="card-text">this is random text</p>
-            </div>
-            <div class="card-body">
-              <p>this is randm text</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-8">
-          <p>col2</p>
-          <div class="col-8">
-            <div class="card mb-2">
-              <h3 class="card-header">history card header</h3>
-              <div class="card-body">
-                <p class="card-text">this is random text</p>
-              </div>
-            </div>
-            <div class="card mb-2">
-              <h3 class="card-header">workouts card header</h3>
-              <div class="card-body">
-                <p class="card-text">this is random text</p>
-              </div>
-            </div>
-          </div>
-        </div>
+    <div class="container-fluid">
+      <div class="row justify-content-center">
+        <img class="w-75 mh-100" src="/media/weights2.jpg" alt="" />
       </div>
     </div>
-    <footer class="navbar bg-body-tertiary sticky-bottom mt-2">
-      <div class="container-fluid">
+    <footer class="navbar bg-body-tertiary fixed-bottom mt-2">
+      <div class="container-fluid justify-content-center">
         <p>Fitness tracker | JavaScript2 | &copyBrandon Knorr</p>
       </div>
     </footer>
