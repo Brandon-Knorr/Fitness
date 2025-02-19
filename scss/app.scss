@@ -1,0 +1,11 @@
+$blue: #0cdee4;
+$tertiary: maroon;
+
+@import '../node_modules/bootstrap/scss/bootstrap';
+@import 'fitness';
+
+
+button {
+    color: $blue;
+}
+
