@@ -346,7 +346,7 @@
                 </button>
                 <div class="collapse" id="workoutForm">
                   <div class="card card-body">
-                    <form>
+                    <form id="workout">
                       <label for="workoutName" class="form-label mb-1"
                         >Exercise:</label
                       >
@@ -355,16 +355,17 @@
                         for="workoutName"
                         aria-label="Default select example"
                         id="exercise-select"
+                        name="exercise"
                       >
                         <option selected disabled>Select an exercise</option>
-                        <option value="1">Bench Press</option>
-                        <option value="2">Barbell Squat</option>
-                        <option value="3">Military Press</option>
-                        <option value="4">Leg Press</option>
-                        <option value="5">Barbell Curl</option>
-                        <option value="6">Deadlift</option>
-                        <option value="7">Pull-Ups</option>
-                        <option value="8">Push-ups</option>
+                        <option value="Bench Press">Bench Press</option>
+                        <option value="Barbell Squat">Barbell Squat</option>
+                        <option value="Military Press">Military Press</option>
+                        <option value="Leg Press">Leg Press</option>
+                        <option value="Barbell Curl">Barbell Curl</option>
+                        <option value="Deadlift">Deadlift</option>
+                        <option value="Pull-Ups">Pull-Ups</option>
+                        <option value="Push-ups">Push-ups</option>
                       </select>
                       <label for="workoutSets" class="form-label">Sets:</label>
                       <select
@@ -372,6 +373,7 @@
                         for="workoutSets"
                         aria-label="Default select example"
                         id="set-select"
+                        name="sets"
                       >
                         <option selected disabled>Number of sets</option>
                         <option value="1">1</option>
@@ -381,9 +383,9 @@
                         <option value="5">5</option>
                       </select>
                       <label for="workoutReps" class="form-label">Reps:</label>
-                      <input type="number" id="rep-select" class="form-control" />
+                      <input type="number" id="rep-select" name="reps" class="form-control" />
                       <div class="row mt-1 mx-auto">
-                        <button class="btn btn-primary mt-2" type="button">
+                        <button class="btn btn-primary mt-2" type="submit">
                           Add
                         </button>
                       </div>
