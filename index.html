@@ -57,9 +57,6 @@
                     <a class="dropdown-item" href="#pills-home">Home</a>
                   </li>
                   <li>
-                    <a class="dropdown-item" data-bs-toggle="pill" data-bs-target="#pills-profile-tab" href="#pills-profile">Profile</a>
-                  </li>
-                  <li>
                     <a class="dropdown-item" href="#pills-rank">Rank</a>
                   </li>
                   <li><hr class="dropdown-divider" /></li>
@@ -69,32 +66,13 @@
                 </ul>
               </li>
             </ul>
-            <form class="d-none d-md-flex me" role="search">
-              <input
-                class="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button class="btn btn-outline-primary" type="submit">
-                <i class="bi bi-search"></i
-                ><span class="visually-hidden">Search</span>
-              </button>
-            </form>
           </div>
         </div>
       </nav>
     </header>
     <div class="container-fluid mt-2 justify-content-center mb-2">
       <!--Big Gorilla Card Main Div-->
-      <div class="card shadow">
-        <h4 class="card-header text-center">Big Gorilla Fitness</h4>
-        <div class="card-body">
-          <h5 class="card-title text-center">
-            Check out the best application to track workouts!
-          </h5>
-        </div>
-      </div>
+
       <!--Tabs Menu Nav-->
       <ul
         class="nav nav-pills nav-justified mb-3 mt-4 justify-content-center"
@@ -113,20 +91,6 @@
             aria-selected="true"
           >
             Home
-          </button>
-        </li>
-        <li class="nav-item" role="presentation">
-          <button
-            class="nav-link"
-            id="pills-profile-tab"
-            data-bs-toggle="pill"
-            data-bs-target="#pills-profile"
-            type="button"
-            role="tab"
-            aria-controls="pills-profile"
-            aria-selected="false"
-          >
-            Profile
           </button>
         </li>
         <li class="nav-item" role="presentation">
@@ -223,60 +187,6 @@
                   10%
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-        <!--Tab Content For PROFILE-->
-        <div
-          class="tab-pane fade"
-          id="pills-profile"
-          role="tabpanel"
-          aria-labelledby="pills-profile-tab"
-          tabindex="0"
-        >
-          <h3 class="text-center">Profile</h3>
-          <div class="container">
-            <div class="row">
-              <div class="col-2 mx-auto">
-                <img
-                  src="assets/images/bs-images/img-2x2.png"
-                  class="img-thumbnail center-block"
-                  alt="img-thumbnail"
-                />
-              </div>
-            </div>
-            <div class="form mb-3 mt-3">
-              <label for="profileName">Name:</label>
-              <input
-                type="name"
-                class="form-control"
-                id="profileName"
-                placeholder="Brandon Knorr"
-                disabled
-              />
-            </div>
-            <div class="form mb-3 mt-3">
-              <label for="profileWeight">Weight:</label>
-              <input
-                type="number"
-                class="form-control"
-                id="profileWeight"
-                placeholder="198"
-                disabled
-              />
-            </div>
-            <div class="form mb-3 mt-3">
-              <label for="profileRank">Rank:</label>
-              <input
-                type="name"
-                class="form-control"
-                id="profileRank"
-                placeholder="Novice"
-                disabled
-              />
-            </div>
-            <div class="d-grid gap-2 col-6 mx-auto">
-              <button class="btn btn-primary" type="button">Edit Weight</button>
             </div>
           </div>
         </div>
@@ -448,5 +358,4 @@
     </footer>
     <div class="pb-5"></div>
   </body>
-  <script src="fitness.js"></script>
 </html>
