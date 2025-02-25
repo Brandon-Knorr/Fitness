@@ -94,7 +94,7 @@
         <div class="tab-content" id="pills-tabContent">
           <!--Tab Content For HOME-->
           <div
-            class="tab-pane fade"
+            class="tab-pane fade show active"
             id="pills-home"
             role="tabpanel"
             aria-labelledby="pills-home-tab"
@@ -180,7 +180,13 @@
             <div class="container mt-5">
               <div class="row justify-content-center">
                 <div class="col-4 mx-auto d-grid">
-                  <button class="btn btn-primary shadow">Add Workout</button>
+                  <button
+                    class="btn btn-primary shadow"
+                    data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop"
+                  >
+                    Add Workout
+                  </button>
                 </div>
               </div>
             </div>
@@ -249,21 +255,24 @@
                 </div>
               </div>
             </div>
-            <div class="d-grid gap-2 col-4 mx-auto mt-5">
-              <button
-                class="btn btn-primary"
-                data-bs-toggle="collapse"
-                data-bs-target="#workoutForm"
-                type="button"
-              >
-                Add Workout
-              </button>
+            <div class="container mt-5">
+              <div class="row justify-content-center">
+                <div class="col-4 mx-auto d-grid">
+                  <button
+                    class="btn btn-primary shadow"
+                    data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop"
+                  >
+                    Add Workout
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
 
           <!--Tab Content For RANK-->
           <div
-            class="tab-pane fade show active"
+            class="tab-pane fade"
             id="pills-rank"
             role="tabpanel"
             aria-labelledby="pills-disabled-tab"
@@ -356,6 +365,49 @@
       </div>
     </div>
 
+    <!--WORKOUT FORM MODAL-->
+    <div
+      class="modal fade"
+      id="staticBackdrop"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">
+              Modal title
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">...</div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-dismiss="modal"
+            >
+              Understood
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
     <!--Footer-->
     <footer class="navbar bg-body-tertiary fixed-bottom">
       <div class="container-fluid justify-content-center">
