@@ -94,7 +94,7 @@
         <div class="tab-content" id="pills-tabContent">
           <!--Tab Content For HOME-->
           <div
-            class="tab-pane fade show active"
+            class="tab-pane fade"
             id="pills-home"
             role="tabpanel"
             aria-labelledby="pills-home-tab"
@@ -188,65 +188,76 @@
 
           <!--Tab Content For WORKOUTS-->
           <div
-            class="tab-pane fade"
+            class="tab-pane fade show active"
             id="pills-workouts"
             role="tabpanel"
             aria-labelledby="pills-contact-tab"
-            tabindex="0"
+            tabindex="1"
           >
             <!--display Heading for WORKOUTS-->
-            <h3 class="text-center display-4">Workouts</h3>
+            <h3 class="text-center display-4 mb-5">Workouts</h3>
 
-            <div class="row mt-2 justify-content-center">
-              <div class="col-sm col-md col-lg-6 col-xl-6">
-                <h4 class="d-flex mb-3 justify-content-between">
-                  <span class="text-primary">Your Workouts</span>
-                  <span class="badge bg-primary rounded-pill">3</span>
-                </h4>
-                <ul class="list-group mb-3" id="workout-list">
-                  <li
-                    class="list-group-item d-flex justify-content-between lh-sm"
-                  >
-                    <div>
-                      <h6 class="my-0">Bench Press</h6>
-                      <small class="text-body-secondary">Sets: 3</small>
-                      <small class="text-body-secondary">Reps: 10</small>
-                      <small class="text-body-secondary">Weight: 150 lbs</small>
+            <div class="container border">
+              <div class="row justify-content-center border">
+                <div class="col-sm col-md col-lg-6 col-xl-6 border">
+                  <div class="row justify-content-center border">
+                    <div class="col-6">
+                      <h4 class="d-flex mb-3 justify-content-between border">
+                        <span class="text-primary">Your Workouts</span>
+                        <span class="badge bg-primary rounded-pill">3</span>
+                      </h4>
                     </div>
-                  </li>
-                  <li
-                    class="list-group-item d-flex justify-content-between lh-sm"
-                  >
-                    <div>
-                      <h6 class="my-0">Barbell Squat</h6>
-                      <small class="text-body-secondary">Sets: 3</small>
-                      <small class="text-body-secondary">Reps: 8</small>
-                      <small class="text-body-secondary">Weight: 200 lbs</small>
-                    </div>
-                  </li>
-                  <li
-                    class="list-group-item d-flex justify-content-between lh-sm"
-                  >
-                    <div>
-                      <h6 class="my-0">Military Press</h6>
-                      <small class="text-body-secondary">Sets: 3</small>
-                      <small class="text-body-secondary">Reps: 6-8</small>
-                      <small class="text-body-secondary">Weight: 100 lbs</small>
-                    </div>
-                  </li>
-                </ul>
-
-                <div class="d-grid gap-2 col-6 mx-auto">
-                  <button
-                    class="btn btn-primary"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#workoutForm"
-                    type="button"
-                  >
-                    Add Workout
-                  </button>
+                  </div>
+                  <ul class="list-group mb-5" id="workout-list">
+                    <li
+                      class="list-group-item d-flex justify-content-between lh-sm"
+                    >
+                      <div>
+                        <h6 class="my-0">Bench Press</h6>
+                        <small class="text-body-secondary">Sets: 3</small>
+                        <small class="text-body-secondary">Reps: 10</small>
+                        <small class="text-body-secondary"
+                          >Weight: 150 lbs</small
+                        >
+                      </div>
+                    </li>
+                    <li
+                      class="list-group-item d-flex justify-content-between lh-sm"
+                    >
+                      <div>
+                        <h6 class="my-0">Barbell Squat</h6>
+                        <small class="text-body-secondary">Sets: 3</small>
+                        <small class="text-body-secondary">Reps: 8</small>
+                        <small class="text-body-secondary"
+                          >Weight: 200 lbs</small
+                        >
+                      </div>
+                    </li>
+                    <li
+                      class="list-group-item d-flex justify-content-between lh-sm"
+                    >
+                      <div>
+                        <h6 class="my-0">Military Press</h6>
+                        <small class="text-body-secondary">Sets: 3</small>
+                        <small class="text-body-secondary">Reps: 6-8</small>
+                        <small class="text-body-secondary"
+                          >Weight: 100 lbs</small
+                        >
+                      </div>
+                    </li>
+                  </ul>
                 </div>
               </div>
+            </div>
+            <div class="d-grid gap-2 col-4 mx-auto mt-5">
+              <button
+                class="btn btn-primary"
+                data-bs-toggle="collapse"
+                data-bs-target="#workoutForm"
+                type="button"
+              >
+                Add Workout
+              </button>
             </div>
           </div>
 
