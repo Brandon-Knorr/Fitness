@@ -23,10 +23,9 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="app.js"></script>
   </head>
   <body>
+    <div id="app"></div>
     <!--Header Nav with Brand-->
     <header class="sticky-top">
       <nav class="navbar navbar-expand-md bg-body-tertiary">
@@ -523,5 +522,14 @@
         <p>Fitness tracker | JavaScript2 | &copyBrandon Knorr</p>
       </div>
     </footer>
+
+    <!--Vue Application-->
+    <script type="module">
+      //create the app
+      import app from "./js/app.js";
+
+      //tell it to run on the div
+      app.mount("#app");
+    </script>
   </body>
 </html>
