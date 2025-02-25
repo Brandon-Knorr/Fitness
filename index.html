@@ -379,7 +379,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <h1 class="modal-title fs-5" id="staticBackdropLabel">
-              Modal title
+              Log a workout
             </h1>
             <button
               type="button"
@@ -388,26 +388,82 @@
               aria-label="Close"
             ></button>
           </div>
-          <div class="modal-body">...</div>
+          <!--CONTENTS OF MODAL BODY-->
+          <div class="modal-body">
+            <form id="workout">
+              <label for="workoutName" class="form-label mb-1">Exercise:</label>
+              <select
+                class="form-select mb-2"
+                for="workoutName"
+                aria-label="Default select example"
+                id="exercise-select"
+                name="exercise"
+              >
+                <option selected disabled>Select an exercise</option>
+                <option value="Bench Press">Bench Press</option>
+                <option value="Barbell Squat">Barbell Squat</option>
+                <option value="Military Press">Military Press</option>
+                <option value="Leg Press">Leg Press</option>
+                <option value="Barbell Curl">Barbell Curl</option>
+                <option value="Deadlift">Deadlift</option>
+                <option value="Pull-Ups">Pull-Ups</option>
+                <option value="Push-ups">Push-ups</option>
+              </select>
+              <label for="workoutSets" class="form-label">Sets:</label>
+              <select
+                class="form-select mb-2"
+                for="workoutSets"
+                aria-label="Default select example"
+                id="set-select"
+                name="sets"
+              >
+                <option selected disabled>Number of sets</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+              <label for="workoutReps" class="form-label">Reps:</label>
+              <input
+                type="number"
+                id="rep-select"
+                name="reps"
+                class="form-control"
+              />
+
+              <!--Button Container-->
+              <div class="container mt-2">
+                <div class="row justify-content-center">
+                  <div class="col-4 mx-auto d-grid">
+                    <button class="btn btn-primary shadow" type="submit">
+                      Add Workout
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
           <div class="modal-footer">
             <button
               type="button"
               class="btn btn-secondary"
               data-bs-dismiss="modal"
             >
-              Close
+              Cancel
             </button>
             <button
               type="button"
               class="btn btn-primary"
               data-bs-dismiss="modal"
             >
-              Understood
+              Completed
             </button>
           </div>
         </div>
       </div>
     </div>
+
     <!--Footer-->
     <footer class="navbar bg-body-tertiary fixed-bottom">
       <div class="container-fluid justify-content-center">
