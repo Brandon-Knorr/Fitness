@@ -25,503 +25,506 @@
     ></script>
   </head>
   <body>
-    <div id="app"></div>
-    <!--Header Nav with Brand-->
-    <header class="sticky-top">
-      <nav class="navbar navbar-expand-md bg-body-tertiary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Fitness Tracker</a>
-        </div>
-      </nav>
-    </header>
-
-    <!--Tabs Menu-->
-    <div class="container col-sm col-lg-6 col-md col-xl-6">
-      <div class="row">
-        <ul
-          class="nav nav-pills mb-5 mt-2 nav-justified"
-          id="pills-tab"
-          role="tablist"
-        >
-          <li class="nav-item" role="presentation">
-            <button
-              class="nav-link active"
-              id="pills-home-tab"
-              data-bs-toggle="pill"
-              data-bs-target="#pills-home"
-              type="button"
-              role="tab"
-              aria-controls="pills-home"
-              aria-selected="true"
-            >
-              Home
-            </button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button
-              class="nav-link"
-              id="pills-workouts-tab"
-              data-bs-toggle="pill"
-              data-bs-target="#pills-workouts"
-              type="button"
-              role="tab"
-              aria-controls="pills-workouts"
-              aria-selected="false"
-            >
-              Workouts
-            </button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button
-              class="nav-link"
-              id="pills-rank-tab"
-              data-bs-toggle="pill"
-              data-bs-target="#pills-rank"
-              type="button"
-              role="tab"
-              aria-controls="pills-rank"
-              aria-selected="false"
-            >
-              Rank
-            </button>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <!--Tab Contents-->
-    <div class="container">
-      <div class="row">
-        <div class="tab-content" id="pills-tabContent">
-          <!--Tab Content For HOME-->
-          <div
-            class="tab-pane fade show active"
-            id="pills-home"
-            role="tabpanel"
-            aria-labelledby="pills-home-tab"
-            tabindex="0"
-          >
-            <!--display heading for HOME-->
-            <h3 class="display-4 text-center">Home</h3>
-
-            <!--Image Container-->
-            <div class="container mt-5 mb-0">
-              <div class="row">
-                <div class="col"></div>
-                <div class="col-4">
-                  <div class="text-center">
-                    <img
-                      src="assets/images/bs-images/img-2x2.png"
-                      class="img-thumbnail mt-2 mb-5 img-fluid"
-                      alt="img-thumbnail"
-                    />
-                  </div>
-                </div>
-                <div class="col"></div>
-              </div>
-            </div>
-
-            <!--User Info Container-->
-            <div class="container-sm border">
-              <div class="row justify-content-center border">
-                <div class="col-sm-8">
-                  <div class="card shadow mb-5 mt-0">
-                    <div class="container">
-                      <div class="row m-1 justify-content-center">
-                        <div class="col-md-4 border">Profile:</div>
-                        <div class="col-md-4 border">Brandon Knorr</div>
-                      </div>
-                      <div class="row m-1 justify-content-center">
-                        <div class="col-md-4 border">Weight:</div>
-                        <div class="col-md-4 border">198 lbs</div>
-                      </div>
-                      <div class="row m-1 justify-content-center">
-                        <div class="col-md-4 border">Rank:</div>
-                        <div class="col-md-4 border">Novice</div>
-                      </div>
-                      <div class="row m-1 justify-content-center">
-                        <div class="col-md-4 border">Active Streak:</div>
-                        <div class="col-md-4 border">0 Days</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!--Progress bar for rank up-->
-            <div class="container-md">
-              <div class="row justify-content-center border">
-                <div class="col-sm-8">
-                  <div class="card shadow">
-                    <div class="label text-center mt-3">
-                      Progress til next rank
-                    </div>
-                    <div class="container p-3 mb-2">
-                      <div class="progress" role="progressbar">
-                        <div
-                          class="progress-bar progress-bar-animated progress-bar-striped"
-                          role="progressbar"
-                          style="width: 10%"
-                          aria-valuenow="10"
-                          aria-valuemin="0"
-                          aria-valuemax="100"
-                        >
-                          10%
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <span class="container mb-4"></span>
-
-            <!--Button to add a workout from homepage-->
-            <div class="container mt-5">
-              <div class="row justify-content-center">
-                <div class="col-4 mx-auto d-grid">
-                  <button
-                    class="btn btn-primary shadow"
-                    data-bs-toggle="modal"
-                    data-bs-target="#staticBackdrop"
-                  >
-                    Add Workout
-                  </button>
-                </div>
-              </div>
-            </div>
+    <div id="app">
+      <!--Header Nav with Brand-->
+      <header class="sticky-top">
+        <nav class="navbar navbar-expand-md bg-body-tertiary">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#">Fitness Tracker</a>
           </div>
+        </nav>
+      </header>
 
-          <!--Tab Content For WORKOUTS-->
-          <div
-            class="tab-pane fade"
-            id="pills-workouts"
-            role="tabpanel"
-            aria-labelledby="pills-contact-tab"
-            tabindex="1"
+      <!--Tabs Menu-->
+      <div class="container col-sm col-lg-6 col-md col-xl-6">
+        <div class="row">
+          <ul
+            class="nav nav-pills mb-5 mt-2 nav-justified"
+            id="pills-tab"
+            role="tablist"
           >
-            <!--display Heading for WORKOUTS-->
-            <h3 class="text-center display-4 mb-5">Workouts</h3>
-
-            <div class="container border">
-              <div class="row justify-content-center border">
-                <div class="col-sm col-md col-lg-6 col-xl-6 border">
-                  <div class="row justify-content-center border">
-                    <div class="col-6">
-                      <h4 class="d-flex mb-3 justify-content-between border">
-                        <span class="text-primary">Your Workouts</span>
-                        <span class="badge bg-primary rounded-pill">3</span>
-                      </h4>
-                    </div>
-                  </div>
-                  <ul class="list-group mb-5" id="workout-list">
-                    <li
-                      class="list-group-item d-flex justify-content-between lh-sm"
-                    >
-                      <div>
-                        <h6 class="my-0">Bench Press</h6>
-                        <small class="text-body-secondary">Sets: 3</small>
-                        <small class="text-body-secondary">Reps: 10</small>
-                        <small class="text-body-secondary"
-                          >Weight: 150 lbs</small
-                        >
-                      </div>
-                    </li>
-                    <li
-                      class="list-group-item d-flex justify-content-between lh-sm"
-                    >
-                      <div>
-                        <h6 class="my-0">Barbell Squat</h6>
-                        <small class="text-body-secondary">Sets: 3</small>
-                        <small class="text-body-secondary">Reps: 8</small>
-                        <small class="text-body-secondary"
-                          >Weight: 200 lbs</small
-                        >
-                      </div>
-                    </li>
-                    <li
-                      class="list-group-item d-flex justify-content-between lh-sm"
-                    >
-                      <div>
-                        <h6 class="my-0">Military Press</h6>
-                        <small class="text-body-secondary">Sets: 3</small>
-                        <small class="text-body-secondary">Reps: 6-8</small>
-                        <small class="text-body-secondary"
-                          >Weight: 100 lbs</small
-                        >
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="container mt-5">
-              <div class="row justify-content-center">
-                <div class="col-4 mx-auto d-grid">
-                  <button
-                    class="btn btn-primary shadow"
-                    data-bs-toggle="modal"
-                    data-bs-target="#staticBackdrop2"
-                  >
-                    Update Weight
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="container mt-2">
-              <div class="row justify-content-center">
-                <div class="col-4 mx-auto d-grid">
-                  <button
-                    class="btn btn-primary shadow"
-                    data-bs-toggle="modal"
-                    data-bs-target="#staticBackdrop"
-                  >
-                    Add Workout
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!--Tab Content For RANK-->
-          <div
-            class="tab-pane fade"
-            id="pills-rank"
-            role="tabpanel"
-            aria-labelledby="pills-disabled-tab"
-            tabindex="2"
-          >
-            <!--display heading for Rank-->
-            <h3 class="display-4 text-center">Rank</h3>
-
-            <!--Image Container-->
-            <div class="container mt-5 mb-0">
-              <div class="row">
-                <div class="col"></div>
-                <div class="col-4">
-                  <div class="text-center">
-                    <img
-                      src="assets/images/bs-images/img-2x2.png"
-                      class="img-thumbnail mt-2 mb-5 img-fluid"
-                      alt="img-thumbnail"
-                    />
-                  </div>
-                </div>
-                <div class="col"></div>
-              </div>
-            </div>
-
-            <!--User Rank Info Card-->
-            <div class="container-sm">
-              <div class="row justify-content-center">
-                <div class="col-4 col-md-6 col-lg-6 col-sm">
-                  <div class="card shadow mb-5">
-                    <div class="container border">
-                      <div class="row justify-content-center">
-                        <div class="col-sm-8 border p-1">
-                          <p>Total Workouts Completed:</p>
-                        </div>
-                        <div class="col border">
-                          <p>3</p>
-                        </div>
-                      </div>
-                      <div class="row justify-content-center">
-                        <div class="col-sm-8 border p-1">
-                          <p>Workouts Til Next Rank:</p>
-                        </div>
-                        <div class="col border">
-                          <p>12</p>
-                        </div>
-                      </div>
-                      <div class="row justify-content-center">
-                        <div class="col-sm-8 border p-1">
-                          <p>Active Streak:</p>
-                        </div>
-                        <div class="col border">
-                          <p>0 Days</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!--Progress Bar Container-->
-            <div class="container-md">
-              <div class="row justify-content-center border">
-                <div class="col-sm-8">
-                  <div class="card shadow">
-                    <div class="label text-center mt-3">
-                      Progress til next rank
-                    </div>
-                    <div class="container p-3 mb-2">
-                      <div class="progress" role="progressbar">
-                        <div
-                          class="progress-bar progress-bar-animated progress-bar-striped"
-                          role="progressbar"
-                          style="width: 10%"
-                          aria-valuenow="10"
-                          aria-valuemin="0"
-                          aria-valuemax="100"
-                        >
-                          10%
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link active"
+                id="pills-home-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#pills-home"
+                type="button"
+                role="tab"
+                aria-controls="pills-home"
+                aria-selected="true"
+              >
+                Home
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link"
+                id="pills-workouts-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#pills-workouts"
+                type="button"
+                role="tab"
+                aria-controls="pills-workouts"
+                aria-selected="false"
+              >
+                Workouts
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link"
+                id="pills-rank-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#pills-rank"
+                type="button"
+                role="tab"
+                aria-controls="pills-rank"
+                aria-selected="false"
+              >
+                Rank
+              </button>
+            </li>
+          </ul>
         </div>
       </div>
-    </div>
 
-    <!--WORKOUT FORM MODAL-->
-    <div
-      class="modal fade"
-      id="staticBackdrop"
-      data-bs-backdrop="static"
-      data-bs-keyboard="false"
-      tabindex="-1"
-      aria-labelledby="staticBackdropLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="staticBackdropLabel">
-              Log a workout
-            </h1>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <!--CONTENTS OF MODAL BODY-->
-          <div class="modal-body">
-            <form id="workout">
-              <label for="workoutName" class="form-label mb-1">Exercise:</label>
-              <select
-                class="form-select mb-2"
-                for="workoutName"
-                aria-label="Default select example"
-                id="exercise-select"
-                name="exercise"
-              >
-                <option selected disabled>Select an exercise</option>
-                <option value="Bench Press">Bench Press</option>
-                <option value="Barbell Squat">Barbell Squat</option>
-                <option value="Military Press">Military Press</option>
-                <option value="Leg Press">Leg Press</option>
-                <option value="Barbell Curl">Barbell Curl</option>
-                <option value="Deadlift">Deadlift</option>
-                <option value="Pull-Ups">Pull-Ups</option>
-                <option value="Push-ups">Push-ups</option>
-              </select>
-              <label for="workoutSets" class="form-label">Sets:</label>
-              <select
-                class="form-select mb-2"
-                for="workoutSets"
-                aria-label="Default select example"
-                id="set-select"
-                name="sets"
-              >
-                <option selected disabled>Number of sets</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-              </select>
-              <label for="workoutReps" class="form-label">Reps:</label>
-              <input
-                type="number"
-                id="rep-select"
-                name="reps"
-                class="form-control"
-              />
+      <!--Tab Contents-->
+      <div class="container">
+        <div class="row">
+          <div class="tab-content" id="pills-tabContent">
+            <!--Tab Content For HOME-->
+            <div
+              class="tab-pane fade show active"
+              id="pills-home"
+              role="tabpanel"
+              aria-labelledby="pills-home-tab"
+              tabindex="0"
+            >
+              <!--display heading for HOME-->
+              <h3 class="display-4 text-center">Home</h3>
 
-              <!--Button Container-->
-              <div class="container mt-2">
+              <!--Image Container-->
+              <div class="container mt-5 mb-0">
+                <div class="row">
+                  <div class="col"></div>
+                  <div class="col-4">
+                    <div class="text-center">
+                      <img
+                        src="assets/images/bs-images/img-2x2.png"
+                        class="img-thumbnail mt-2 mb-5 img-fluid"
+                        alt="img-thumbnail"
+                      />
+                    </div>
+                  </div>
+                  <div class="col"></div>
+                </div>
+              </div>
+
+              <!--User Info Container-->
+              <div class="container-sm border">
+                <div class="row justify-content-center border">
+                  <div class="col-sm-8">
+                    <div class="card shadow mb-5 mt-0">
+                      <div class="container">
+                        <div class="row m-1 justify-content-center">
+                          <div class="col-md-4 border">Profile:</div>
+                          <div class="col-md-4 border">Brandon Knorr</div>
+                        </div>
+                        <div class="row m-1 justify-content-center">
+                          <div class="col-md-4 border">Weight:</div>
+                          <div class="col-md-4 border">198 lbs</div>
+                        </div>
+                        <div class="row m-1 justify-content-center">
+                          <div class="col-md-4 border">Rank:</div>
+                          <div class="col-md-4 border">Novice</div>
+                        </div>
+                        <div class="row m-1 justify-content-center">
+                          <div class="col-md-4 border">Active Streak:</div>
+                          <div class="col-md-4 border">0 Days</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!--Progress bar for rank up-->
+              <div class="container-md">
+                <div class="row justify-content-center border">
+                  <div class="col-sm-8">
+                    <div class="card shadow">
+                      <div class="label text-center mt-3">
+                        Progress til next rank
+                      </div>
+                      <div class="container p-3 mb-2">
+                        <div class="progress" role="progressbar">
+                          <div
+                            class="progress-bar progress-bar-animated progress-bar-striped"
+                            role="progressbar"
+                            style="width: 10%"
+                            aria-valuenow="10"
+                            aria-valuemin="0"
+                            aria-valuemax="100"
+                          >
+                            10%
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <span class="container mb-4"></span>
+
+              <!--Button to add a workout from homepage-->
+              <div class="container mt-5">
                 <div class="row justify-content-center">
                   <div class="col-4 mx-auto d-grid">
-                    <button class="btn btn-primary shadow" type="submit">
+                    <button
+                      class="btn btn-primary shadow"
+                      data-bs-toggle="modal"
+                      data-bs-target="#staticBackdrop"
+                    >
                       Add Workout
                     </button>
                   </div>
                 </div>
               </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
+            </div>
+
+            <!--Tab Content For WORKOUTS-->
+            <div
+              class="tab-pane fade"
+              id="pills-workouts"
+              role="tabpanel"
+              aria-labelledby="pills-contact-tab"
+              tabindex="1"
             >
-              Cancel
-            </button>
-            <button
-              type="button"
-              class="btn btn-primary"
-              data-bs-dismiss="modal"
+              <!--display Heading for WORKOUTS-->
+              <h3 class="text-center display-4 mb-5">Workouts</h3>
+
+              <div class="container border">
+                <div class="row justify-content-center border">
+                  <div class="col-sm col-md col-lg-6 col-xl-6 border">
+                    <div class="row justify-content-center border">
+                      <div class="col-6">
+                        <h4 class="d-flex mb-3 justify-content-between border">
+                          <span class="text-primary">Your Workouts</span>
+                          <span class="badge bg-primary rounded-pill">3</span>
+                        </h4>
+                      </div>
+                    </div>
+                    <ul class="list-group mb-5" id="workout-list">
+                      <li
+                        class="list-group-item d-flex justify-content-between lh-sm"
+                      >
+                        <div>
+                          <h6 class="my-0">Bench Press</h6>
+                          <small class="text-body-secondary">Sets: 3</small>
+                          <small class="text-body-secondary">Reps: 10</small>
+                          <small class="text-body-secondary"
+                            >Weight: 150 lbs</small
+                          >
+                        </div>
+                      </li>
+                      <li
+                        class="list-group-item d-flex justify-content-between lh-sm"
+                      >
+                        <div>
+                          <h6 class="my-0">Barbell Squat</h6>
+                          <small class="text-body-secondary">Sets: 3</small>
+                          <small class="text-body-secondary">Reps: 8</small>
+                          <small class="text-body-secondary"
+                            >Weight: 200 lbs</small
+                          >
+                        </div>
+                      </li>
+                      <li
+                        class="list-group-item d-flex justify-content-between lh-sm"
+                      >
+                        <div>
+                          <h6 class="my-0">Military Press</h6>
+                          <small class="text-body-secondary">Sets: 3</small>
+                          <small class="text-body-secondary">Reps: 6-8</small>
+                          <small class="text-body-secondary"
+                            >Weight: 100 lbs</small
+                          >
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="container mt-5">
+                <div class="row justify-content-center">
+                  <div class="col-4 mx-auto d-grid">
+                    <button
+                      class="btn btn-primary shadow"
+                      data-bs-toggle="modal"
+                      data-bs-target="#staticBackdrop2"
+                    >
+                      Update Weight
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="container mt-2">
+                <div class="row justify-content-center">
+                  <div class="col-4 mx-auto d-grid">
+                    <button
+                      class="btn btn-primary shadow"
+                      data-bs-toggle="modal"
+                      data-bs-target="#staticBackdrop"
+                    >
+                      Add Workout
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!--Tab Content For RANK-->
+            <div
+              class="tab-pane fade"
+              id="pills-rank"
+              role="tabpanel"
+              aria-labelledby="pills-disabled-tab"
+              tabindex="2"
             >
-              Completed
-            </button>
+              <!--display heading for Rank-->
+              <h3 class="display-4 text-center">Rank</h3>
+
+              <!--Image Container-->
+              <div class="container mt-5 mb-0">
+                <div class="row">
+                  <div class="col"></div>
+                  <div class="col-4">
+                    <div class="text-center">
+                      <img
+                        src="assets/images/bs-images/img-2x2.png"
+                        class="img-thumbnail mt-2 mb-5 img-fluid"
+                        alt="img-thumbnail"
+                      />
+                    </div>
+                  </div>
+                  <div class="col"></div>
+                </div>
+              </div>
+
+              <!--User Rank Info Card-->
+              <div class="container-sm">
+                <div class="row justify-content-center">
+                  <div class="col-4 col-md-6 col-lg-6 col-sm">
+                    <div class="card shadow mb-5">
+                      <div class="container border">
+                        <div class="row justify-content-center">
+                          <div class="col-sm-8 border p-1">
+                            <p>Total Workouts Completed:</p>
+                          </div>
+                          <div class="col border">
+                            <p>3</p>
+                          </div>
+                        </div>
+                        <div class="row justify-content-center">
+                          <div class="col-sm-8 border p-1">
+                            <p>Workouts Til Next Rank:</p>
+                          </div>
+                          <div class="col border">
+                            <p>12</p>
+                          </div>
+                        </div>
+                        <div class="row justify-content-center">
+                          <div class="col-sm-8 border p-1">
+                            <p>Active Streak:</p>
+                          </div>
+                          <div class="col border">
+                            <p>0 Days</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!--Progress Bar Container-->
+              <div class="container-md">
+                <div class="row justify-content-center border">
+                  <div class="col-sm-8">
+                    <div class="card shadow">
+                      <div class="label text-center mt-3">
+                        Progress til next rank
+                      </div>
+                      <div class="container p-3 mb-2">
+                        <div class="progress" role="progressbar">
+                          <div
+                            class="progress-bar progress-bar-animated progress-bar-striped"
+                            role="progressbar"
+                            style="width: 10%"
+                            aria-valuenow="10"
+                            aria-valuemin="0"
+                            aria-valuemax="100"
+                          >
+                            10%
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!--EDIT WEIGHT MODAL-->
-    <div
-      class="modal fade"
-      id="staticBackdrop2"
-      data-bs-backdrop="static"
-      data-bs-keyboard="false"
-      tabindex="-1"
-      aria-labelledby="staticBackdropLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="staticBackdropLabel2">
-              Log new weight
-            </h1>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">...</div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Close
-            </button>
-            <button type="button" class="btn btn-primary">Understood</button>
+      <!--WORKOUT FORM MODAL-->
+      <div
+        class="modal fade"
+        id="staticBackdrop"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="staticBackdropLabel">
+                Log a workout
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <!--CONTENTS OF MODAL BODY-->
+            <div class="modal-body">
+              <form id="workout">
+                <label for="workoutName" class="form-label mb-1"
+                  >Exercise:</label
+                >
+                <select
+                  class="form-select mb-2"
+                  for="workoutName"
+                  aria-label="Default select example"
+                  id="exercise-select"
+                  name="exercise"
+                >
+                  <option selected disabled>Select an exercise</option>
+                  <option value="Bench Press">Bench Press</option>
+                  <option value="Barbell Squat">Barbell Squat</option>
+                  <option value="Military Press">Military Press</option>
+                  <option value="Leg Press">Leg Press</option>
+                  <option value="Barbell Curl">Barbell Curl</option>
+                  <option value="Deadlift">Deadlift</option>
+                  <option value="Pull-Ups">Pull-Ups</option>
+                  <option value="Push-ups">Push-ups</option>
+                </select>
+                <label for="workoutSets" class="form-label">Sets:</label>
+                <select
+                  class="form-select mb-2"
+                  for="workoutSets"
+                  aria-label="Default select example"
+                  id="set-select"
+                  name="sets"
+                >
+                  <option selected disabled>Number of sets</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+                <label for="workoutReps" class="form-label">Reps:</label>
+                <input
+                  type="number"
+                  id="rep-select"
+                  name="reps"
+                  class="form-control"
+                />
+
+                <!--Button Container-->
+                <div class="container mt-2">
+                  <div class="row justify-content-center">
+                    <div class="col-4 mx-auto d-grid">
+                      <button class="btn btn-primary shadow" type="submit">
+                        Add Workout
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                class="btn btn-primary"
+                data-bs-dismiss="modal"
+              >
+                Completed
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!--Footer-->
-    <footer class="navbar bg-body-tertiary fixed-bottom">
-      <div class="container-fluid justify-content-center">
-        <p>Fitness tracker | JavaScript2 | &copyBrandon Knorr</p>
+      <!--EDIT WEIGHT MODAL-->
+      <div
+        class="modal fade"
+        id="staticBackdrop2"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="staticBackdropLabel2">
+                Log new weight
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">...</div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button type="button" class="btn btn-primary">Understood</button>
+            </div>
+          </div>
+        </div>
       </div>
-    </footer>
+
+      <!--Footer-->
+      <footer class="navbar bg-body-tertiary fixed-bottom">
+        <div class="container-fluid justify-content-center">
+          <p>Fitness tracker | JavaScript2 | &copyBrandon Knorr</p>
+        </div>
+      </footer>
+    </div>
 
     <!--Vue Application-->
     <script type="module">
