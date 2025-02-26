@@ -7,7 +7,6 @@ const app = createApp({
             name: "Brandon Knorr",
             weight: 198,
             rank: "Novice",
-            activeStreak: 0,
         });
     
         // Workout List

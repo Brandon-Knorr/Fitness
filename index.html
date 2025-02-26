@@ -141,12 +141,6 @@
                           <div class="col-md-4 border">Rank:</div>
                           <div class="col-md-4 border">{{ user.rank }}</div>
                         </div>
-                        <div class="row m-1 justify-content-center">
-                          <div class="col-md-4 border">Active Streak:</div>
-                          <div class="col-md-4 border">
-                            {{ user.activeStreak }} Days
-                          </div>
-                        </div>
                       </div>
                     </div>
                   </div>
@@ -447,13 +441,6 @@
               >
                 Cancel
               </button>
-              <button
-                type="button"
-                class="btn btn-primary"
-                data-bs-dismiss="modal"
-              >
-                Completed
-              </button>
             </div>
           </div>
         </div>
@@ -473,7 +460,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <h1 class="modal-title fs-5" id="staticBackdropLabel2">
-                Log new weight
+                Log New Weight
               </h1>
               <button
                 type="button"
@@ -482,16 +469,24 @@
                 aria-label="Close"
               ></button>
             </div>
-            <div class="modal-body">...</div>
+            <div class="modal-body">
+              <form id="weightForm">
+                <label for="weightLog" class="form-label mb-1"
+                  >Update current weight:</label
+                >
+              </form>
+            </div>
             <div class="modal-footer">
               <button
                 type="button"
                 class="btn btn-secondary"
                 data-bs-dismiss="modal"
               >
-                Close
+                Cancel
               </button>
-              <button type="button" class="btn btn-primary">Understood</button>
+              <button type="button" class="btn btn-primary">
+                Update Weight
+              </button>
             </div>
           </div>
         </div>
