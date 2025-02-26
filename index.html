@@ -347,12 +347,12 @@
                           <div
                             class="progress-bar progress-bar-animated progress-bar-striped"
                             role="progressbar"
-                            style="width: 10%"
-                            aria-valuenow="10"
+                            :style="{ width: progress + '%' }"
+                            :aria-valuenow="progress"
                             aria-valuemin="0"
                             aria-valuemax="100"
                           >
-                            10%
+                            {{ progress }}%
                           </div>
                         </div>
                       </div>
