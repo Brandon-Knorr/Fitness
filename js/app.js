@@ -56,8 +56,8 @@ const app = createApp({
         };
     
         // Function to update user weight
-            const updateWeight = (newWeight) => {
-                user.weight = newWeight;
+            const updateWeight = (newUserWeight) => {
+                user.weight = newUserWeight;
             };
     
         // Function to rank up

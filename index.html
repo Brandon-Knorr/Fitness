@@ -395,15 +395,40 @@
                   name="exercise"
                   v-model="newExercise"
                 >
-                  <option selected disabled>Select an exercise</option>
-                  <option value="Bench Press">Bench Press</option>
-                  <option value="Barbell Squat">Barbell Squat</option>
-                  <option value="Military Press">Military Press</option>
-                  <option value="Leg Press">Leg Press</option>
-                  <option value="Barbell Curl">Barbell Curl</option>
-                  <option value="Deadlift">Deadlift</option>
-                  <option value="Pull-Ups">Pull-Ups</option>
-                  <option value="Push-ups">Push-ups</option>
+                  <optgroup label="Strength">
+                    <option value="bench-press">Bench Press</option>
+                    <option value="squats">Squats</option>
+                    <option value="deadlifts">Deadlifts</option>
+                    <option value="overhead-press">Overhead Press</option>
+                    <option value="barbell-rows">Barbell Rows</option>
+                  </optgroup>
+                  <optgroup label="Cardio">
+                    <option value="running">Running</option>
+                    <option value="jumping-jacks">Jumping Jacks</option>
+                    <option value="cycling">Cycling</option>
+                    <option value="hiit">
+                      High-Intensity Interval Training (HIIT)
+                    </option>
+                    <option value="swimming">Swimming</option>
+                  </optgroup>
+                  <optgroup label="Mobility">
+                    <option value="yoga-flow">Yoga Flow</option>
+                    <option value="dynamic-stretching">
+                      Dynamic Stretching
+                    </option>
+                    <option value="foam-rolling">Foam Rolling</option>
+                    <option value="joint-mobility">
+                      Joint Mobility Exercises
+                    </option>
+                    <option value="static-stretching">Static Stretching</option>
+                  </optgroup>
+                  <optgroup label="Core">
+                    <option value="plank">Plank</option>
+                    <option value="russian-twists">Russian Twists</option>
+                    <option value="leg-raises">Leg Raises</option>
+                    <option value="crunches">Crunches</option>
+                    <option value="mountain-climbers">Mountain Climbers</option>
+                  </optgroup>
                 </select>
 
                 <label for="workoutsets" class="form-label">Sets: </label>
