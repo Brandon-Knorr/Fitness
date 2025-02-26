@@ -222,18 +222,14 @@
                         class="list-group-item d-flex justify-content-between lh-sm"
                       >
                         <div>
-                          <h6 class="my-0">{{ workout.name }}</h6>
-                          <small class="text-body-secondary me-2"
-                            >Sets: {{ workout.sets }}
+                          <h6 class="my-0">
+                            {{ workout.name }} | {{ workout.category }}
+                          </h6>
+                          <small class="text-body-secondary me-2">
+                            Sets: {{ workout.sets }}, Reps: {{ workout.reps }},
+                            Weight: {{ workout.weight }} lbs, Duration: {{
+                            workout.duration }} minutes
                           </small>
-
-                          <small class="text-body-secondary me-2"
-                            >Reps: {{ workout.reps }}
-                          </small>
-
-                          <small class="text-body-secondary me-2"
-                            >Weight: {{ workout.weight }} lbs</small
-                          >
                         </div>
                       </li>
                     </ul>

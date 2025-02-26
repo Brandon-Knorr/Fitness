@@ -11,13 +11,17 @@ const app = createApp({
     
         // Workout List
         const workouts = ref([
-            { name: "Bench Press", sets: 3, reps: 10, weight: 150 },
-            { name: "Barbell Squat", sets: 3, reps: 8, weight: 200 },
-            { name: "Military Press", sets: 3, reps: 8, weight: 100 },
+            { name: "Bench Press", category: "Strength", sets: 3, reps: 10, weight: 150, duration: 25 },
+            { name: "Barbell Squat", category: "Strength", sets: 3, reps: 8, weight: 200, duration: 5 },
+            { name: "Military Press", category: "Strength", sets: 3, reps: 8, weight: 100, duration: 60 },
         ]   );
     
         // Progress toward next rank
-        const progress =computed(() => workoutsNeededForNextRank.value - workouts.value.length);
+        const progress = computed(() => {
+            const percentage = (totalWorkouts.value / workoutsNeededForNextRank.value) * 100;
+            return Math.round(percentage); //round to nearest integer
+        });
+        
         const totalWorkouts = computed(() => workouts.value.length);
         const workoutsNeededForNextRank = ref(15); // Example threshold
 
