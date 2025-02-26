@@ -14,7 +14,7 @@ const app = createApp({
         const workouts = ref([
             { name: "Bench Press", sets: 3, reps: 10, weight: 150 },
             { name: "Barbell Squat", sets: 3, reps: 8, weight: 200 },
-            { name: "Military Press", sets: 3, reps: "6-8", weight: 100 },
+            { name: "Military Press", sets: 3, reps: 8, weight: 100 },
         ]   );
     
         // Progress toward next rank
@@ -37,9 +37,22 @@ const app = createApp({
         });
     
         // Function to add a new workout
-        const addWorkout = (exercise, sets, reps, weight) => {
-            if (exercise && sets && reps && weight) {
-                workouts.value.push({ name: exercise, sets, reps, weight });
+        const addWorkout = () => { // if all things have a value then push values to array
+            if (newExercise.value && newSets.value && newReps.value && newWeight.value) {
+                workouts.value.push({
+                    name: newExercise.value,
+                    sets: newSets.value,
+                    reps: newReps.value,
+                    weight: newWeight.value,
+                });
+
+                // Reset form fields after submission 
+                newExercise.value = "";
+                newSets.value = "";
+                newReps.value = "";
+                newWeight.value = "";
+
+                updateProgress();
             }
         };
     
@@ -66,6 +79,10 @@ const app = createApp({
                 addWorkout,
                 updateWeight,
                 workoutsNeededForNextRank,
+                newExercise,
+                newSets,
+                newReps,
+                newWeight,
             };
     },
 });

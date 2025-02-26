@@ -227,13 +227,15 @@
                       >
                         <div>
                           <h6 class="my-0">{{ workout.name }}</h6>
-                          <small class="text-body-secondary"
-                            >Sets: {{ workout.sets }}</small
-                          >
-                          <small class="text-body-secondary"
-                            >Reps: {{ workout.reps }}</small
-                          >
-                          <small class="text-body-secondary"
+                          <small class="text-body-secondary me-2"
+                            >Sets: {{ workout.sets }}
+                          </small>
+
+                          <small class="text-body-secondary me-2"
+                            >Reps: {{ workout.reps }}
+                          </small>
+
+                          <small class="text-body-secondary me-2"
                             >Weight: {{ workout.weight }} lbs</small
                           >
                         </div>
@@ -416,11 +418,14 @@
                   <option value="Push-ups">Push-ups</option>
                 </select>
 
-                <label for="workoutsets" class="form-label">Sets:</label>
+                <label for="workoutsets" class="form-label">Sets: </label>
                 <input type="number" v-model="newSets" class="form-control" />
 
-                <label for="workoutReps" class="form-label">Reps:</label>
+                <label for="workoutReps" class="form-label">Reps: </label>
                 <input type="number" v-model="newReps" class="form-control" />
+
+                <label for="workoutWeight" class="form-label">Weight: </label>
+                <input type="number" v-model="newWeight" class="form-control" />
 
                 <!--Button Container-->
                 <div class="container mt-2">
