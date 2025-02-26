@@ -17,9 +17,9 @@ const app = createApp({
         ]   );
     
         // Progress toward next rank
-        const progress = ref(10); // 10% by default
+        const progress =computed(() => workoutsNeededForNextRank.value - workouts.value.length);
         const totalWorkouts = computed(() => workouts.value.length);
-        const workoutsNeededForNextRank = ref(12); // Example threshold
+        const workoutsNeededForNextRank = ref(15); // Example threshold
 
         //ref variables to store my new workout list item
         const newExercise = ref("");
