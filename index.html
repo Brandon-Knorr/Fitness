@@ -209,7 +209,9 @@
                       <div class="col-6">
                         <h4 class="d-flex mb-3 justify-content-between border">
                           <span class="text-primary">Your Workouts</span>
-                          <span class="badge bg-primary rounded-pill">3</span>
+                          <span class="badge bg-primary rounded-pill"
+                            >{{ totalWorkouts }}</span
+                          >
                         </h4>
                       </div>
                     </div>
@@ -472,8 +474,14 @@
             <div class="modal-body">
               <form id="weightForm">
                 <label for="weightLog" class="form-label mb-1"
-                  >Update current weight:</label
+                  >Current weight:</label
                 >
+                <input
+                  type="number"
+                  for="weightLog"
+                  v-model="newUserWeight"
+                  class="form-control"
+                />
               </form>
             </div>
             <div class="modal-footer">
