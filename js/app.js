@@ -120,10 +120,22 @@ const app = createApp({
         }
       }
     };
+      
+      // Function to show toast message
+      const showToast = (message) => {
+      const toast = document.getElementById("toast");
+      toast.className = "toast live-toast show text-white bg-success ";
+      toast.innerText = message;
+      document.body.appendChild(toast);
+      setTimeout(() => toast.remove(), 3000);
+    };
+
 
     // Function to update user weight
     const updateWeight = (weight) => {
+      debugger;
       user.weight = weight;
+      showToast("Weight updated successfully!");
     };
 
     // Function to remove a workout from the list
@@ -166,6 +178,7 @@ const app = createApp({
       newUserWeight,
       autoSetCategory,
       rankIcons,
+      showToast,
     };
   },
 });
