@@ -390,14 +390,20 @@
             </div>
             <!--CONTENTS OF MODAL BODY-->
             <div class="modal-body">
-              <form id="workout">
-                <label for="workout" class="form-label mb-1">Exercise:</label>
+              <form
+                @submit.prevent="addWorkout(newExercise, newSets, newReps, newWeight)"
+                id="workout"
+              >
+                <label for="workoutName" class="form-label mb-1"
+                  >Exercise:</label
+                >
                 <select
                   class="form-select mb-2"
-                  for="workout"
+                  for="workoutName"
                   aria-label="Default select example"
                   id="exercise-select"
                   name="exercise"
+                  v-model="newExercise"
                 >
                   <option selected disabled>Select an exercise</option>
                   <option value="Bench Press">Bench Press</option>
@@ -409,28 +415,12 @@
                   <option value="Pull-Ups">Pull-Ups</option>
                   <option value="Push-ups">Push-ups</option>
                 </select>
-                <label for="workout" class="form-label">Sets:</label>
-                <select
-                  class="form-select mb-2"
-                  for="workout"
-                  aria-label="Default select example"
-                  id="set-select"
-                  name="sets"
-                >
-                  <option selected disabled>Number of sets</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                </select>
-                <label for="workout" class="form-label">Reps:</label>
-                <input
-                  type="number"
-                  id="rep-select"
-                  name="reps"
-                  class="form-control"
-                />
+
+                <label for="workoutsets" class="form-label">Sets:</label>
+                <input type="number" v-model="newSets" class="form-control" />
+
+                <label for="workoutReps" class="form-label">Reps:</label>
+                <input type="number" v-model="newReps" class="form-control" />
 
                 <!--Button Container-->
                 <div class="container mt-2">
