@@ -110,10 +110,11 @@
                   <div class="col"></div>
                   <div class="col-4">
                     <div class="text-center">
+                      <!-- Reactive rank image -->
                       <img
-                        src="assets/images/bs-images/img-2x2.png"
+                        :src="rankIcons[user.rank]"
                         class="img-thumbnail mt-2 mb-5 img-fluid"
-                        alt="img-thumbnail"
+                        alt="Rank image"
                       />
                     </div>
                   </div>
@@ -196,7 +197,7 @@
               class="tab-pane fade"
               id="pills-workouts"
               role="tabpanel"
-              aria-labelledby="pills-contact-tab"
+              aria-labelledby="pills-workouts-tab"
               tabindex="1"
             >
               <!--display Heading for WORKOUTS-->
@@ -223,14 +224,34 @@
                       >
                         <div>
                           <h6 class="my-0">
-                            {{ workout.name }} | {{ workout.category }}
+                            {{ workout.name }}
+                            <!-- Only display category if provided -->
+                            <span v-if="workout.category">
+                              | {{ workout.category }}</span
+                            >
                           </h6>
                           <small class="text-body-secondary me-2">
-                            Sets: {{ workout.sets }}, Reps: {{ workout.reps }},
-                            Weight: {{ workout.weight }} lbs, Duration: {{
-                            workout.duration }} minutes
+                            <span v-if="workout.sets"
+                              >Sets: {{ workout.sets }}</span
+                            >
+                            <span v-if="workout.reps"
+                              >, Reps: {{ workout.reps }}</span
+                            >
+                            <span v-if="workout.weight"
+                              >, Weight: {{ workout.weight }} lbs</span
+                            >
+                            <span v-if="workout.duration"
+                              >, Duration: {{ workout.duration }} minutes</span
+                            >
                           </small>
                         </div>
+                        <!-- Remove button for each workout -->
+                        <button
+                          class="btn btn-sm btn-danger"
+                          @click="removeWorkout(index)"
+                        >
+                          <i class="bi bi-trash"></i>
+                        </button>
                       </li>
                     </ul>
                   </div>
@@ -269,7 +290,7 @@
               class="tab-pane fade"
               id="pills-rank"
               role="tabpanel"
-              aria-labelledby="pills-disabled-tab"
+              aria-labelledby="pills-rank-tab"
               tabindex="2"
             >
               <!--display heading for Rank-->
@@ -282,9 +303,9 @@
                   <div class="col-4">
                     <div class="text-center">
                       <img
-                        src="assets/images/bs-images/img-2x2.png"
+                        :src="rankIcons[user.rank]"
                         class="img-thumbnail mt-2 mb-5 img-fluid"
-                        alt="img-thumbnail"
+                        alt="Rank image"
                       />
                     </div>
                   </div>
@@ -377,7 +398,7 @@
             <!--CONTENTS OF MODAL BODY-->
             <div class="modal-body">
               <form
-                @submit.prevent="addWorkout(newExercise, newSets, newReps, newWeight)"
+                @submit.prevent="addWorkout(newExercise, newSets, newReps, newWeight, newDuration)"
                 id="workout"
               >
                 <label for="workoutName" class="form-label mb-1"
@@ -385,11 +406,10 @@
                 >
                 <select
                   class="form-select mb-2"
-                  for="workoutName"
-                  aria-label="Default select example"
                   id="exercise-select"
                   name="exercise"
                   v-model="newExercise"
+                  @change="autoSetCategory"
                 >
                   <optgroup label="Strength">
                     <option value="bench-press">Bench Press</option>
@@ -427,14 +447,36 @@
                   </optgroup>
                 </select>
 
+                <!-- New Duration Input -->
+                <label for="workoutDuration" class="form-label"
+                  >Duration (minutes):
+                </label>
+                <input
+                  type="number"
+                  v-model="newDuration"
+                  class="form-control mb-2"
+                />
+
                 <label for="workoutsets" class="form-label">Sets: </label>
-                <input type="number" v-model="newSets" class="form-control" />
+                <input
+                  type="number"
+                  v-model="newSets"
+                  class="form-control mb-2"
+                />
 
                 <label for="workoutReps" class="form-label">Reps: </label>
-                <input type="number" v-model="newReps" class="form-control" />
+                <input
+                  type="number"
+                  v-model="newReps"
+                  class="form-control mb-2"
+                />
 
                 <label for="workoutWeight" class="form-label">Weight: </label>
-                <input type="number" v-model="newWeight" class="form-control" />
+                <input
+                  type="number"
+                  v-model="newWeight"
+                  class="form-control mb-2"
+                />
 
                 <!--Button Container-->
                 <div class="container mt-2">
@@ -468,7 +510,7 @@
         data-bs-backdrop="static"
         data-bs-keyboard="false"
         tabindex="-1"
-        aria-labelledby="staticBackdropLabel"
+        aria-labelledby="staticBackdropLabel2"
         aria-hidden="true"
       >
         <div class="modal-dialog modal-dialog-centered">
@@ -485,13 +527,16 @@
               ></button>
             </div>
             <div class="modal-body">
-              <form id="weightForm">
+              <form
+                id="weightForm"
+                @submit.prevent="updateWeight(newUserWeight)"
+              >
                 <label for="weightLog" class="form-label mb-1"
                   >Current weight:</label
                 >
                 <input
                   type="number"
-                  for="weightLog"
+                  id="weightLog"
                   v-model="newUserWeight"
                   class="form-control"
                 />
@@ -505,7 +550,11 @@
               >
                 Cancel
               </button>
-              <button type="button" class="btn btn-primary">
+              <button
+                type="button"
+                class="btn btn-primary"
+                @click="updateWeightAndClose"
+              >
                 Update Weight
               </button>
             </div>
@@ -516,7 +565,7 @@
       <!--Footer-->
       <footer class="navbar bg-body-tertiary fixed-bottom">
         <div class="container-fluid justify-content-center">
-          <p>Fitness tracker | JavaScript2 | &copyBrandon Knorr</p>
+          <p>Fitness tracker | JavaScript2 | &copy; Brandon Knorr</p>
         </div>
       </footer>
     </div>

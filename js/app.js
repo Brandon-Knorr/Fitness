@@ -1,100 +1,174 @@
-import { createApp, ref, reactive, computed, watch } from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
+import { createApp, ref, reactive, computed, watch, nextTick } from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
 
 const app = createApp({
-    setup() {
+  setup() {
     // User Info (Reactive State)
-        const user = reactive({
-            name: "Brandon Knorr",
-            weight: 198,
-            rank: "Novice",
+    const user = reactive({
+      name: "Brandon Knorr",
+      weight: 198,
+      rank: "Novice",
+    });
+
+    // Workout List
+    const workouts = ref([
+      { name: "Bench Press", category: "Strength", sets: 3, reps: 10, weight: 150, duration: 25 },
+      { name: "Barbell Squat", category: "Strength", sets: 3, reps: 8, weight: 200, duration: 5 },
+      { name: "Military Press", category: "Strength", sets: 3, reps: 8, weight: 100, duration: 60 },
+    ]);
+
+    // Progress toward next rank
+    const totalWorkouts = computed(() => workouts.value.length);
+    const workoutsNeededForNextRank = ref(15); // Example threshold
+    const progress = computed(() => {
+      const percentage = (totalWorkouts.value / workoutsNeededForNextRank.value) * 100;
+      return Math.round(percentage);
+    });
+
+    // Mapping exercises to categories
+    const exerciseCategories = {
+      "bench-press": "Strength",
+      "squats": "Strength",
+      "deadlifts": "Strength",
+      "overhead-press": "Strength",
+      "barbell-rows": "Strength",
+      "running": "Cardio",
+      "jumping-jacks": "Cardio",
+      "cycling": "Cardio",
+      "hiit": "Cardio",
+      "swimming": "Cardio",
+      "yoga-flow": "Mobility",
+      "dynamic-stretching": "Mobility",
+      "foam-rolling": "Mobility",
+      "joint-mobility": "Mobility",
+      "static-stretching": "Mobility",
+      "plank": "Core",
+      "russian-twists": "Core",
+      "leg-raises": "Core",
+      "crunches": "Core",
+      "mountain-climbers": "Core",
+    };
+
+    // Rank icons mapping
+    const rankIcons = {
+      "Novice": "assets/images/rank-novice.png",
+      "Intermediate": "assets/images/rank-intermediate.png",
+      "Advanced": "assets/images/rank-advanced.png",
+      "Elite": "assets/images/rank-elite.png",
+    };
+
+    // Refs for new workout and weight
+    const newExercise = ref("");
+    const newSets = ref("");
+    const newReps = ref("");
+    const newWeight = ref("");
+    const newDuration = ref("");
+    const newUserWeight = ref("");
+
+    // Auto-set category when an exercise is chosen
+    const autoSetCategory = () => {
+      // newCategory is derived from the selected exercise
+      newCategory.value = exerciseCategories[newExercise.value] || "";
+    };
+
+    // Reactive variable to hold the category (set automatically)
+    const newCategory = ref("");
+
+    // Function to add a new workout
+    const addWorkout = () => {
+      // Only add the workout if required fields are provided
+      if (newExercise.value && newSets.value && newReps.value && newWeight.value) {
+        workouts.value.push({
+          name: newExercise.value,
+          category: newCategory.value,
+          sets: newSets.value,
+          reps: newReps.value,
+          weight: newWeight.value,
+          duration: newDuration.value || null, // include duration if provided
         });
-    
-        // Workout List
-        const workouts = ref([
-            { name: "Bench Press", category: "Strength", sets: 3, reps: 10, weight: 150, duration: 25 },
-            { name: "Barbell Squat", category: "Strength", sets: 3, reps: 8, weight: 200, duration: 5 },
-            { name: "Military Press", category: "Strength", sets: 3, reps: 8, weight: 100, duration: 60 },
-        ]   );
-    
-        // Progress toward next rank
-        const progress = computed(() => {
-            const percentage = (totalWorkouts.value / workoutsNeededForNextRank.value) * 100;
-            return Math.round(percentage); //round to nearest integer
+
+        // Reset form fields after submission 
+        newExercise.value = "";
+        newSets.value = "";
+        newReps.value = "";
+        newWeight.value = "";
+        newDuration.value = "";
+        newCategory.value = "";
+
+        // After adding a workout, close the workout modal and switch to the Workouts tab.
+        nextTick(() => {
+          const workoutModal = bootstrap.Modal.getInstance(document.getElementById("staticBackdrop"));
+          if (workoutModal) {
+            workoutModal.hide();
+          }
+          // Switch tab to Workouts
+          const workoutsTab = document.querySelector("#pills-workouts-tab");
+          if (workoutsTab) {
+            workoutsTab.click();
+          }
         });
+      }
+    };
 
-        const totalWorkouts = computed(() => workouts.value.length);
-        const workoutsNeededForNextRank = ref(15); // Example threshold
+    // Function to update user weight and close the modal
+    const updateWeightAndClose = () => {
+      if (newUserWeight.value) {
+        updateWeight(newUserWeight.value);
+        newUserWeight.value = "";
+        const weightModal = bootstrap.Modal.getInstance(document.getElementById("staticBackdrop2"));
+        if (weightModal) {
+          weightModal.hide();
+        }
+      }
+    };
 
-        //ref variables to store my new workout list item
-        const newExercise = ref("");
-        const newCategory = ref("");
-        const newSets = ref("");
-        const newReps = ref("");
-        const newWeight = ref("");
-        const newDuration = ref("");
+    // Function to update user weight
+    const updateWeight = (weight) => {
+      user.weight = weight;
+    };
 
-        // create modal visibility refs
-        const addWorkoutModalVisible = ref(false);
-        const editWeightModalVisible = ref(false);
-    
-        // Watcher: Updates rank progress based on total workouts
-        watch(totalWorkouts, (newCount) => {
-            progress.value = (newCount / workoutsNeededForNextRank.value) * 100;
-                if (progress.value >= 100) {
-                    rankUp();
-                }
-        });
-    
-        // Function to add a new workout
-        const addWorkout = () => { // if all things have a value then push values to array
-            if (newExercise.value && newSets.value && newReps.value && newWeight.value) {
-                workouts.value.push({
-                    name: newExercise.value,
-                    sets: newSets.value,
-                    reps: newReps.value,
-                    weight: newWeight.value,
-                });
+    // Function to remove a workout from the list
+    const removeWorkout = (index) => {
+      workouts.value.splice(index, 1);
+    };
 
-                // Reset form fields after submission 
-                newExercise.value = "";
-                newSets.value = "";
-                newReps.value = "";
-                newWeight.value = "";
+    // Function to rank up
+    const rankUp = () => {
+      const ranks = ["Novice", "Intermediate", "Advanced", "Elite"];
+      let currentIndex = ranks.indexOf(user.rank);
+      if (currentIndex < ranks.length - 1) {
+        user.rank = ranks[currentIndex + 1];
+        // Optionally, reset progress or handle any additional logic here
+      }
+    };
 
-                updateProgress();
-            }
-        };
-    
-        // Function to update user weight
-            const updateWeight = (newUserWeight) => {
-                user.weight = newUserWeight;
-            };
-    
-        // Function to rank up
-            const rankUp = () => {
-            const ranks = ["Novice", "Intermediate", "Advanced", "Elite"];
-            let currentIndex = ranks.indexOf(user.rank);
-            if (currentIndex < ranks.length - 1) {
-                user.rank = ranks[currentIndex + 1];
-                progress.value = 0; // Reset progress after ranking up
-            }
-        };
-    
-            return {
-                user,
-                workouts,
-                progress,
-                totalWorkouts,
-                addWorkout,
-                updateWeight,
-                workoutsNeededForNextRank,
-                newExercise,
-                newSets,
-                newReps,
-                newWeight,
-            };
-    },
+    // Watcher: Automatically rank up when progress reaches 100%
+    watch(totalWorkouts, (newCount) => {
+      if (progress.value >= 100) {
+        rankUp();
+      }
+    });
+
+    return {
+      user,
+      workouts,
+      progress,
+      totalWorkouts,
+      workoutsNeededForNextRank,
+      addWorkout,
+      updateWeight,
+      updateWeightAndClose,
+      removeWorkout,
+      newExercise,
+      newSets,
+      newReps,
+      newWeight,
+      newDuration,
+      newUserWeight,
+      autoSetCategory,
+      rankIcons,
+    };
+  },
 });
-    
+
 // Export the Vue app
 export default app;
