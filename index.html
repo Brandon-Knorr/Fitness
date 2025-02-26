@@ -129,19 +129,23 @@
                       <div class="container">
                         <div class="row m-1 justify-content-center">
                           <div class="col-md-4 border">Profile:</div>
-                          <div class="col-md-4 border">Brandon Knorr</div>
+                          <div class="col-md-4 border">{{ user.name }}</div>
                         </div>
                         <div class="row m-1 justify-content-center">
                           <div class="col-md-4 border">Weight:</div>
-                          <div class="col-md-4 border">198 lbs</div>
+                          <div class="col-md-4 border">
+                            {{ user.weight }} lbs
+                          </div>
                         </div>
                         <div class="row m-1 justify-content-center">
                           <div class="col-md-4 border">Rank:</div>
-                          <div class="col-md-4 border">Novice</div>
+                          <div class="col-md-4 border">{{ user.rank }}</div>
                         </div>
                         <div class="row m-1 justify-content-center">
                           <div class="col-md-4 border">Active Streak:</div>
-                          <div class="col-md-4 border">0 Days</div>
+                          <div class="col-md-4 border">
+                            {{ user.activeStreak }} Days
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -405,12 +409,10 @@
             <!--CONTENTS OF MODAL BODY-->
             <div class="modal-body">
               <form id="workout">
-                <label for="workoutName" class="form-label mb-1"
-                  >Exercise:</label
-                >
+                <label for="workout" class="form-label mb-1">Exercise:</label>
                 <select
                   class="form-select mb-2"
-                  for="workoutName"
+                  for="workout"
                   aria-label="Default select example"
                   id="exercise-select"
                   name="exercise"
@@ -425,10 +427,10 @@
                   <option value="Pull-Ups">Pull-Ups</option>
                   <option value="Push-ups">Push-ups</option>
                 </select>
-                <label for="workoutSets" class="form-label">Sets:</label>
+                <label for="workout" class="form-label">Sets:</label>
                 <select
                   class="form-select mb-2"
-                  for="workoutSets"
+                  for="workout"
                   aria-label="Default select example"
                   id="set-select"
                   name="sets"
@@ -440,7 +442,7 @@
                   <option value="4">4</option>
                   <option value="5">5</option>
                 </select>
-                <label for="workoutReps" class="form-label">Reps:</label>
+                <label for="workout" class="form-label">Reps:</label>
                 <input
                   type="number"
                   id="rep-select"
