@@ -21,6 +21,12 @@ const app = createApp({
         const progress = ref(10); // 10% by default
         const totalWorkouts = computed(() => workouts.value.length);
         const workoutsNeededForNextRank = ref(12); // Example threshold
+
+        //ref variables to store my new workout list item
+        const newExercise = ref("");
+        const newSets = ref("");
+        const newReps = ref("");
+        const newWeight = ref("");
     
         // Watcher: Updates rank progress based on total workouts
         watch(totalWorkouts, (newCount) => {
