@@ -246,12 +246,20 @@
                           </small>
                         </div>
                         <!-- Remove button for each workout -->
-                        <button
-                          class="btn btn-sm btn-danger"
-                          @click="removeWorkout(index)"
-                        >
-                          <i class="bi bi-trash"></i>
-                        </button>
+                        <div class="d-grid gap-2 d-md-flex justify-content-end">
+                          <button
+                            class="btn btn-sm"
+                            @click="editWorkout(index)"
+                          >
+                            <i class="bi bi-pencil-square"></i>
+                          </button>
+                          <button
+                            class="btn btn-sm btn-danger"
+                            @click="removeWorkout(index)"
+                          >
+                            <i class="bi bi-trash"></i>
+                          </button>
+                        </div>
                       </li>
                     </ul>
                   </div>
