@@ -33,6 +33,9 @@ const app = createApp({
         const newWeight = ref("");
         const newDuration = ref("");
 
+        // create modal visibility refs
+        const addWorkoutModalVisible = ref(false);
+        const editWeightModalVisible = ref(false);
     
         // Watcher: Updates rank progress based on total workouts
         watch(totalWorkouts, (newCount) => {
