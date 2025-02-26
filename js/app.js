@@ -21,15 +21,18 @@ const app = createApp({
             const percentage = (totalWorkouts.value / workoutsNeededForNextRank.value) * 100;
             return Math.round(percentage); //round to nearest integer
         });
-        
+
         const totalWorkouts = computed(() => workouts.value.length);
         const workoutsNeededForNextRank = ref(15); // Example threshold
 
         //ref variables to store my new workout list item
         const newExercise = ref("");
+        const newCategory = ref("");
         const newSets = ref("");
         const newReps = ref("");
         const newWeight = ref("");
+        const newDuration = ref("");
+
     
         // Watcher: Updates rank progress based on total workouts
         watch(totalWorkouts, (newCount) => {
