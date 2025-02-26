@@ -221,38 +221,20 @@
                     </div>
                     <ul class="list-group mb-5" id="workout-list">
                       <li
+                        v-for="(workout, index) in workouts"
+                        :key="index"
                         class="list-group-item d-flex justify-content-between lh-sm"
                       >
                         <div>
-                          <h6 class="my-0">Bench Press</h6>
-                          <small class="text-body-secondary">Sets: 3</small>
-                          <small class="text-body-secondary">Reps: 10</small>
+                          <h6 class="my-0">{{ workout.name }}</h6>
                           <small class="text-body-secondary"
-                            >Weight: 150 lbs</small
+                            >Sets: {{ workout.sets }}</small
                           >
-                        </div>
-                      </li>
-                      <li
-                        class="list-group-item d-flex justify-content-between lh-sm"
-                      >
-                        <div>
-                          <h6 class="my-0">Barbell Squat</h6>
-                          <small class="text-body-secondary">Sets: 3</small>
-                          <small class="text-body-secondary">Reps: 8</small>
                           <small class="text-body-secondary"
-                            >Weight: 200 lbs</small
+                            >Reps: {{ workout.reps }}</small
                           >
-                        </div>
-                      </li>
-                      <li
-                        class="list-group-item d-flex justify-content-between lh-sm"
-                      >
-                        <div>
-                          <h6 class="my-0">Military Press</h6>
-                          <small class="text-body-secondary">Sets: 3</small>
-                          <small class="text-body-secondary">Reps: 6-8</small>
                           <small class="text-body-secondary"
-                            >Weight: 100 lbs</small
+                            >Weight: {{ workout.weight }} lbs</small
                           >
                         </div>
                       </li>
