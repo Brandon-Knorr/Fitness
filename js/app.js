@@ -1,6 +1,6 @@
-import Vue, { createApp, ref, reactive, computed, watch } from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
+import { createApp, ref, reactive, computed, watch } from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
 
-const app = Vue.createApp({
+const app = createApp({
     setup() {
     // User Info (Reactive State)
         const user = reactive({
@@ -66,11 +66,3 @@ const app = Vue.createApp({
     
 // Export the Vue app
 export default app;
-
-    
-
-
-
-
-    
-
