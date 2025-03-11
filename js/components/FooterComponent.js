@@ -30,7 +30,7 @@ const FooterComponent = {
 
     year: {
       type: String,
-      default: "&copy; 2025",
+      default: "2025",
     },
   },
 
@@ -51,7 +51,7 @@ const FooterComponent = {
   template: `
         <footer class="navbar bg-body-tertiary fixed-bottom">
         <div class="container-fluid justify-content-center">
-          <p>{{ title }} | {{ course }} | {{ publisher }} | {{ year }}</p>
+          <p>{{ title }} | {{ course }} | {{ publisher }} | &copy;{{ year }}</p>
         </div>
       </footer>
       
