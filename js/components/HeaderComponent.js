@@ -5,14 +5,24 @@
 const HeaderComponent = {
   //data
   data: function () {
-    return {};
+    return {
+    };
   },
 
   //props Data that are passed into the component
   //can be optional or required
   //objects and arrays are passed by reference
   //primitives are passed by value
-  props: {},
+  props: {
+    title: {
+        type: String,
+        default: "Header Title"
+    },
+
+    myImgUrl: {
+        type: String,
+        default: "/assets/favicon-32x32.png"
+  },
 
   //methods are usually events triggered by v-on
   methods: {},
