@@ -83,23 +83,7 @@ const app = createApp({
       },
     };
   },
-  computed: {
-    progress() {
-      const percentage =
-        (this.workouts.length / this.workoutsNeededForNextRank) * 100;
-      return Math.round(percentage);
-    },
-  },
-  watch: {
-    workouts: {
-      handler(newWorkouts) {
-        if (this.progress >= 100) {
-          this.rankUp();
-        }
-      },
-      deep: true,
-    },
-  },
+
   methods: {
     autoSetCategory() {
       this.newCategory = this.exerciseCategories[this.newExercise] || "";
@@ -161,13 +145,6 @@ const app = createApp({
     },
     removeWorkout(index) {
       this.workouts.splice(index, 1);
-    },
-    rankUp() {
-      const ranks = ["Novice", "Intermediate", "Advanced", "Elite"];
-      let currentIndex = ranks.indexOf(this.user.rank);
-      if (currentIndex < ranks.length - 1) {
-        this.user.rank = ranks[currentIndex + 1];
-      }
     },
   },
 });
