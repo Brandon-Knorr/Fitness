@@ -5,8 +5,7 @@
 const HeaderComponent = {
   //data
   data: function () {
-    return {
-    };
+    return {};
   },
 
   //props Data that are passed into the component
@@ -15,13 +14,13 @@ const HeaderComponent = {
   //primitives are passed by value
   props: {
     title: {
-        type: String,
-        default: "Header Title"
+      type: String,
+      default: "Fitness Tracker",
     },
-
     myImgUrl: {
-        type: String,
-        default: "/assets/favicon-32x32.png"
+      type: String,
+      default: "/assets/favicon-32x32.png",
+    },
   },
 
   //methods are usually events triggered by v-on
@@ -39,7 +38,15 @@ const HeaderComponent = {
   //it should consist of one root element
   //you can reference data, props, methods, computed properties, and watch properties using {{}}
   template: `
-    
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-md bg-body-tertiary">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#"
+              ><img :src="myImgUrl" />{{ title }}</a
+            >
+          </div>
+        </nav>
+      </header>
     
     `,
 };
