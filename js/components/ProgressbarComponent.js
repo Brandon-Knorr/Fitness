@@ -77,6 +77,30 @@ const ProgressbarComponent = {
   //it should consist of one root element
   //you can reference data, props, methods, computed properties, and watch properties using {{}}
   template: `
-    
+            <div class="container-md">
+                <div class="row justify-content-center">
+                  <div class="col-sm-8">
+                    <div class="card shadow">
+                      <div class="label text-center mt-3">
+                        {{ title }}
+                      </div>
+                      <div class="container p-3 mb-2">
+                        <div class="progress" role="progressbar">
+                          <div
+                            class="progress-bar progress-bar-animated progress-bar-striped"
+                            role="progressbar"
+                            :style="{ width: progress + '%'}"
+                            :aria-valuenow="progress"
+                            aria-valuemin="0"
+                            aria-valuemax="100"
+                          >
+                            {{ progress }}%
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
     `,
 };
