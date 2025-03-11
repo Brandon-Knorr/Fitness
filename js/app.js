@@ -1,11 +1,13 @@
 import { createApp } from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
 import HeaderComponent from "./components/HeaderComponent.js";
+import FooterComponent from "./components/FooterComponent.js";
 
 const app = createApp({
   //components are reusable pieces of code that can be used in multiple places
   //components can be imported from other files
   components: {
     HeaderComponent,
+    FooterComponent,
   },
 
   data() {
