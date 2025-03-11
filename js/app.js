@@ -84,20 +84,20 @@ const app = createApp({
     };
   },
   computed: {
-    totalWorkouts() {
-      return this.workouts.length;
-    },
     progress() {
       const percentage =
-        (this.totalWorkouts / this.workoutsNeededForNextRank) * 100;
+        (this.workouts.length / this.workoutsNeededForNextRank) * 100;
       return Math.round(percentage);
     },
   },
   watch: {
-    totalWorkouts(newCount) {
-      if (this.progress >= 100) {
-        this.rankUp();
-      }
+    workouts: {
+      handler(newWorkouts) {
+        if (this.progress >= 100) {
+          this.rankUp();
+        }
+      },
+      deep: true,
     },
   },
   methods: {

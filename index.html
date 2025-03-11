@@ -161,31 +161,12 @@
               </div>
 
               <!--Progress bar for rank up-->
-              <div class="container-md">
-                <div class="row justify-content-center">
-                  <div class="col-sm-8">
-                    <div class="card shadow">
-                      <div class="label text-center mt-3">
-                        Progress til next rank
-                      </div>
-                      <div class="container p-3 mb-2">
-                        <div class="progress" role="progressbar">
-                          <div
-                            class="progress-bar progress-bar-animated progress-bar-striped"
-                            role="progressbar"
-                            :style="{ width: progress + '%'}"
-                            :aria-valuenow="progress"
-                            aria-valuemin="0"
-                            aria-valuemax="100"
-                          >
-                            {{ progress }}%
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <progressbar-component
+                title="Progress Until Next Rank"
+                :workoutsNeededForNextRank="workOutsNeededForNextRank"
+                :totalWorkouts="totalWorkOuts"
+                :workouts="workouts"
+              ></progressbar-component>
               <span class="container mb-4"></span>
 
               <!--Button to add a workout from homepage-->
@@ -360,31 +341,12 @@
               </div>
 
               <!--Progress Bar Container-->
-              <div class="container-md">
-                <div class="row justify-content-center">
-                  <div class="col-sm-8">
-                    <div class="card shadow">
-                      <div class="label text-center mt-3">
-                        Progress til next rank
-                      </div>
-                      <div class="container p-3 mb-2">
-                        <div class="progress" role="progressbar">
-                          <div
-                            class="progress-bar progress-bar-animated progress-bar-striped"
-                            role="progressbar"
-                            :style="{ width: progress + '%' }"
-                            :aria-valuenow="progress"
-                            aria-valuemin="0"
-                            aria-valuemax="100"
-                          >
-                            {{ progress }}%
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <progressbar-component
+                title="Progress Until Next Rank"
+                :workoutsNeededForNextRank="workOutsNeededForNextRank"
+                :totalWorkouts="totalWorkOuts"
+                :workouts="workouts"
+              ></progressbar-component>
             </div>
           </div>
         </div>

@@ -27,10 +27,6 @@ const ProgressbarComponent = {
       type: Number,
       default: 15,
     },
-    totalWorkOuts: {
-      type: Number,
-      default: 0,
-    },
     workouts: {
       type: Array,
       default: () => [],
@@ -54,11 +50,8 @@ const ProgressbarComponent = {
   computed: {
     progress() {
       const percentage =
-        (this.totalWorkouts / this.workoutsNeededForNextRank) * 100;
+        (this.workouts.length / this.workOutsNeededForNextRank) * 100;
       return Math.round(percentage);
-    },
-    totalWorkOuts() {
-      return this.workouts.length;
     },
   },
 
