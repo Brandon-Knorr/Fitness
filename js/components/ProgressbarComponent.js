@@ -104,3 +104,6 @@ const ProgressbarComponent = {
               </div>
     `,
 };
+
+//export the component
+export default ProgressbarComponent;
