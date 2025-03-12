@@ -1,8 +1,10 @@
 import WorkoutItemComponent from "./WorkoutItemComponent.js";
+import AddWorkoutModalComponent from "./AddWorkoutModalComponent.js";
 
 const WorkoutListComponent = {
   components: {
     WorkoutItemComponent,
+    AddWorkoutModalComponent,
   },
 
   data: function () {
@@ -50,6 +52,9 @@ const WorkoutListComponent = {
     removeWorkout(index) {
       this.workouts.splice(index, 1);
     },
+    addWorkout(newWorkout) {
+      this.workouts.push(newWorkout);
+    },
   },
 
   computed: {
@@ -83,6 +88,10 @@ const WorkoutListComponent = {
                     </ul>
                   </div>
                 </div>
+                <add-workout-modal-component
+                  @add-workout="addWorkout"
+                  :exercise-categories="exerciseCategories">
+                </add-workout-modal-component>
               </div>
   `,
 };
