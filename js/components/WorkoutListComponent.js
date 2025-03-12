@@ -1,4 +1,10 @@
+import WorkoutItemComponent from "./WorkoutItemComponent.js";
+
 const WorkoutListComponent = {
+  components: {
+    WorkoutItemComponent,
+  },
+
   data: function () {
     return {
       newExercise: "",
@@ -37,6 +43,12 @@ const WorkoutListComponent = {
     workouts: {
       type: Array,
       default: () => [],
+    },
+  },
+
+  methods: {
+    removeWorkout(index) {
+      this.workouts.splice(index, 1);
     },
   },
 
