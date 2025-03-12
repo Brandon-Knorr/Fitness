@@ -3,6 +3,7 @@ import HeaderComponent from "./components/HeaderComponent.js";
 import FooterComponent from "./components/FooterComponent.js";
 import ProgressbarComponent from "./components/ProgressbarComponent.js";
 import WorkoutListComponent from "./components/WorkoutListComponent.js";
+import AddWorkoutModalComponent from "./components/AddWorkoutModalComponent.js";
 
 const app = createApp({
   //components are reusable pieces of code that can be used in multiple places
@@ -12,6 +13,7 @@ const app = createApp({
     FooterComponent,
     ProgressbarComponent,
     WorkoutListComponent,
+    AddWorkoutModalComponent,
   },
 
   data() {

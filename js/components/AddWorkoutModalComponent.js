@@ -191,3 +191,5 @@ const AddWorkoutModalComponent = {
       </div>
   `,
 };
+
+export default AddWorkoutModalComponent;
