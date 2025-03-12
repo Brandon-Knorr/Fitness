@@ -116,9 +116,6 @@ const app = createApp({
       document.body.appendChild(toast);
       setTimeout(() => toast.remove(), 3000);
     },
-    removeWorkout(index) {
-      this.workouts.splice(index, 1);
-    },
   },
 });
 
