@@ -3,7 +3,16 @@ const WorkoutItemComponent = {
     return {};
   },
 
-  props: {},
+  props: {
+    workout: {
+      type: Object,
+      default: () => {},
+    },
+    index: {
+      type: Number,
+      required: true,
+    },
+  },
 
   methods: {},
 
