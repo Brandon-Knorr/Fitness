@@ -59,6 +59,12 @@ const app = createApp({
     };
   },
 
+  computed: {
+    totalWorkouts() {
+      return this.workouts.length;
+    },
+  },
+
   methods: {
     addWorkout() {
       this.workouts.push(workout);
