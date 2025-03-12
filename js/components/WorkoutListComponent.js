@@ -40,15 +40,11 @@ const WorkoutListComponent = {
     },
   },
 
-  methods: {},
-
   computed: {
     totalWorkouts() {
       return this.workouts.length;
     },
   },
-
-  watch: {},
 
   template: `
     <div class="container">
