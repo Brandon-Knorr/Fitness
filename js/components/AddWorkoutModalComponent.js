@@ -32,6 +32,8 @@ const AddWorkoutModalComponent = {
           duration: this.newDuration || null,
         });
 
+        this.$emit("add-workout", newWorkout);
+
         this.newExercise = "";
         this.newSets = "";
         this.newReps = "";
