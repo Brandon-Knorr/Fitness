@@ -2,6 +2,7 @@ import { createApp } from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
 import HeaderComponent from "./components/HeaderComponent.js";
 import FooterComponent from "./components/FooterComponent.js";
 import ProgressbarComponent from "./components/ProgressbarComponent.js";
+import WorkoutListComponent from "./components/WorkoutListComponent.js";
 
 const app = createApp({
   //components are reusable pieces of code that can be used in multiple places
@@ -10,6 +11,7 @@ const app = createApp({
     HeaderComponent,
     FooterComponent,
     ProgressbarComponent,
+    WorkoutListComponent,
   },
 
   data() {
