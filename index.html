@@ -193,11 +193,13 @@
               aria-labelledby="pills-workouts-tab"
               tabindex="1"
             >
+              <!--Workout List Component-->
               <workout-list-component
                 :workouts="workouts"
                 @removeWorkout="removeWorkout"
               >
               </workout-list-component>
+
               <div class="container mt-3">
                 <div class="row justify-content-center">
                   <div class="col-4 mx-auto d-grid">
