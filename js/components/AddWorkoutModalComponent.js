@@ -10,7 +10,12 @@ const AddWorkoutModalComponent = {
     };
   },
 
-  props: {},
+  props: {
+    title: {
+      type: String,
+      default: "Add Workout",
+    },
+  },
 
   methods: {},
 
