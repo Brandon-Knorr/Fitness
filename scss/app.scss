@@ -1,17 +1,30 @@
-$blue: maroon;
-$border-radius: 0;
+// variable overrides 
+
+$blue:    #284c77;
+$red:     #a30300;
+$gray-600: #dad2da;
+$green:   #1e3f20;
+$cyan:    #0dcaf0;
+$viridain: #679289;
+
+$primary:       $green;
+$secondary:     $gray-600;
+$success:       $blue;
+$info:          $viridain;
+$danger:        $red;
+
+$border-radius: 0; // makes all the corners across the app sharp
 $border-radius-sm: 0;
 $border-radius-md: 0;
 $border-radius-lg: 0;
 $border-radius-xl: 0;
 $border-radius-xxl: 0;
 
-
+//imports
 @import '../node_modules/bootstrap/scss/bootstrap';
 @import 'fitness';
 
 
-button {
-    color: $blue;
-}
+//custom styles
+
 
