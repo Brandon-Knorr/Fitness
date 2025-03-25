@@ -13,10 +13,6 @@ const HeaderComponent = {
   //objects and arrays are passed by reference
   //primitives are passed by value
   props: {
-    title: {
-      type: String,
-      default: "Fitness Tracker",
-    },
     myImgUrl: {
       type: String,
       default: "/assets/favicon-32x32.png",
@@ -42,7 +38,7 @@ const HeaderComponent = {
         <nav class="navbar navbar-expand-md bg-body-tertiary">
           <div class="container-fluid">
             <a class="navbar-brand" href="#"
-              ><img :src="myImgUrl" />{{ title }}</a
+              ><img :src="myImgUrl" />MyFit Journal</a
             >
           </div>
         </nav>
