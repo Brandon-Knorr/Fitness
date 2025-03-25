@@ -12,27 +12,7 @@ const FooterComponent = {
   //can be optional or required
   //objects and arrays are passed by reference
   //primitives are passed by value
-  props: {
-    title: {
-      type: String,
-      default: "Fitness Tracker",
-    },
-
-    course: {
-      type: String,
-      default: "JavaScript 2",
-    },
-
-    publisher: {
-      type: String,
-      default: "Brandon Knorr",
-    },
-
-    year: {
-      type: String,
-      default: "2025",
-    },
-  },
+  props: {},
 
   //methods are usually events triggered by v-on
   methods: {},
@@ -51,7 +31,7 @@ const FooterComponent = {
   template: `
         <footer class="navbar bg-body-tertiary fixed-bottom">
         <div class="container-fluid justify-content-center">
-          <p>{{ title }} | {{ course }} | {{ publisher }} | &copy;{{ year }}</p>
+          <p>MyFit Journal | JavaScript 2 | Brandon Knorr | &copy;2025</p>
         </div>
       </footer>
       
