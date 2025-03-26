@@ -104,38 +104,38 @@ const AddWorkoutModalComponent = {
                     @change="autoSetCategory($event)"
                   >
                     <optgroup label="Strength">
-                      <option value="bench-press" data-category="Strength">Bench Press</option>
-                      <option value="squats">Squats</option>
-                      <option value="deadlifts">Deadlifts</option>
-                      <option value="overhead-press">Overhead Press</option>
-                      <option value="barbell-rows">Barbell Rows</option>
+                      <option value="Bench-press" data-category="Strength">Bench Press</option>
+                      <option value="Squats">Squats</option>
+                      <option value="Deadlifts">Deadlifts</option>
+                      <option value="Overhead-press">Overhead Press</option>
+                      <option value="Barbell-rows">Barbell Rows</option>
                     </optgroup>
                     <optgroup label="Cardio">
-                      <option value="running">Running</option>
-                      <option value="jumping-jacks">Jumping Jacks</option>
-                      <option value="cycling">Cycling</option>
-                      <option value="hiit">
+                      <option value="Running">Running</option>
+                      <option value="Jumping-jacks">Jumping Jacks</option>
+                      <option value="Cycling">Cycling</option>
+                      <option value="Hiit">
                         High-Intensity Interval Training (HIIT)
                       </option>
-                      <option value="swimming">Swimming</option>
+                      <option value="Swimming">Swimming</option>
                     </optgroup>
                     <optgroup label="Mobility">
-                      <option value="yoga-flow">Yoga Flow</option>
-                      <option value="dynamic-stretching">
+                      <option value="Yoga-flow">Yoga Flow</option>
+                      <option value="Dynamic-stretching">
                         Dynamic Stretching
                       </option>
-                      <option value="foam-rolling">Foam Rolling</option>
-                      <option value="joint-mobility">
+                      <option value="oam-rolling">Foam Rolling</option>
+                      <option value="Joint-mobility">
                         Joint Mobility Exercises
                       </option>
-                      <option value="static-stretching">Static Stretching</option>
+                      <option value="Static-stretching">Static Stretching</option>
                     </optgroup>
                     <optgroup label="Core">
-                      <option value="plank">Plank</option>
-                      <option value="russian-twists">Russian Twists</option>
-                      <option value="leg-raises">Leg Raises</option>
-                      <option value="crunches">Crunches</option>
-                      <option value="mountain-climbers">Mountain Climbers</option>
+                      <option value="Plank">Plank</option>
+                      <option value="Russian-twists">Russian Twists</option>
+                      <option value="Leg-raises">Leg Raises</option>
+                      <option value="Crunches">Crunches</option>
+                      <option value="Mountain-climbers">Mountain Climbers</option>
                     </optgroup>
                   </select>
   
