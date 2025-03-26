@@ -18,6 +18,9 @@ const WorkoutItemComponent = {
     removeWorkout() {
       this.$emit("remove-workout", this.index);
     },
+    editWorkout() {
+      this.$emit("edit-workout", this.index); // Emit the edit event
+    },
   },
 
   computed: {},
@@ -51,7 +54,7 @@ const WorkoutItemComponent = {
         <div class="d-grid gap-2 d-md-flex justify-content-end">
             <button
             class="btn btn-sm"
-            @click="editWorkout(index)"
+            @click="editWorkout"
             >
             <i class="bi bi-pencil-square"></i>
             </button>

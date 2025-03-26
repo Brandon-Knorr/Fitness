@@ -19,7 +19,42 @@ const EditWorkoutModalComponent = {
       required: true,
     },
   },
-  methods: {},
+  methods: {
+    autoSetCategory(event) {
+      const selectedOption = event.target.options[event.target.selectedIndex];
+      const optgroup = selectedOption.closest("optgroup");
+      this.editedCategory = optgroup ? optgroup.label : "";
+    },
+    editWorkout() {
+      if (
+        this.editedExercise &&
+        this.editedSets &&
+        this.editedReps &&
+        this.editedWeight
+      ) {
+        const updatedWorkout = {
+          name: this.editedExercise,
+          category: this.editedCategory,
+          sets: this.editedSets,
+          reps: this.editedReps,
+          weight: this.editedWeight,
+          duration: this.editedDuration || null,
+        };
+
+        this.$emit("update-workout", updatedWorkout);
+
+        // Close the modal after saving changes
+        this.$nextTick(() => {
+          const editModal = bootstrap.Modal.getInstance(
+            document.getElementById("editModal")
+          );
+          if (editModal) {
+            editModal.hide();
+          }
+        });
+      }
+    },
+  },
   computed: {},
   watch: {},
   template: `
@@ -82,7 +117,7 @@ const EditWorkoutModalComponent = {
                       <option value="Dynamic-stretching">
                         Dynamic Stretching
                       </option>
-                      <option value="oam-rolling">Foam Rolling</option>
+                      <option value="Foam-rolling">Foam Rolling</option>
                       <option value="Joint-mobility">
                         Joint Mobility Exercises
                       </option>

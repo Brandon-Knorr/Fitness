@@ -1,10 +1,12 @@
 import WorkoutItemComponent from "./WorkoutItemComponent.js";
 import AddWorkoutModalComponent from "./AddWorkoutModalComponent.js";
+import EditWorkoutModalComponent from "./EditWorkoutModalComponent.js";
 
 const WorkoutListComponent = {
   components: {
     WorkoutItemComponent,
     AddWorkoutModalComponent,
+    EditWorkoutModalComponent,
   },
 
   data: function () {
@@ -38,6 +40,8 @@ const WorkoutListComponent = {
         crunches: "Core",
         "mountain-climbers": "Core",
       },
+      selectedWorkout: null,
+      selectedWorkoutIndex: null,
     };
   },
 
@@ -54,6 +58,24 @@ const WorkoutListComponent = {
     },
     addWorkout(newWorkout) {
       this.workouts.push(newWorkout);
+    },
+    editWorkout(index) {
+      this.selectedWorkout = { ...this.workouts[index] }; // Clone the workout to avoid direct mutation
+      this.selectedWorkoutIndex = index;
+
+      // Trigger the modal
+      const editModal = new bootstrap.Modal(
+        document.getElementById("editModal")
+      );
+      editModal.show();
+    },
+    updateWorkout(updatedWorkout) {
+      if (this.selectedWorkoutIndex !== null) {
+        // Update the workout in the list
+        this.$set(this.workouts, this.selectedWorkoutIndex, updatedWorkout);
+        this.selectedWorkoutIndex = null;
+        this.selectedWorkout = null;
+      }
     },
   },
 
@@ -84,6 +106,7 @@ const WorkoutListComponent = {
                         :workout="workout"
                         :index="index"
                         @remove-workout="removeWorkout"
+                        @edit-workout="editWorkout"
                       ></workout-item-component>
                     </ul>
                   </div>
@@ -92,6 +115,13 @@ const WorkoutListComponent = {
                   @add-workout="addWorkout"
                   :exercise-categories="exerciseCategories">
                 </add-workout-modal-component>
+
+                  <!-- Include the EditWorkoutModalComponent -->
+      <edit-workout-modal-component
+        v-if="selectedWorkout"
+        :workout="selectedWorkout"
+        @update-workout="updateWorkout"
+      ></edit-workout-modal-component>
               </div>
   `,
 };
