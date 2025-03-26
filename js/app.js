@@ -51,10 +51,13 @@ const app = createApp({
       ],
       workoutsNeededForNextRank: 15,
       rankIcons: {
-        Novice: "assets/images/rank-novice.png",
-        Intermediate: "assets/images/rank-intermediate.png",
-        Advanced: "assets/images/rank-advanced.png",
-        Elite: "assets/images/rank-elite.png",
+        Novice: "/assets/trophy_150dp_B89230_FILL0_wght400_GRAD0_opsz48.svg",
+        Intermediate:
+          "/assets/rewarded_ads_150dp_B89230_FILL0_wght400_GRAD0_opsz48 (1).svg",
+        Advanced:
+          "/assets/social_leaderboard_150dp_B89230_FILL0_wght400_GRAD0_opsz48.svg",
+        Elite:
+          "/assets/military_tech_150dp_B89230_FILL0_wght400_GRAD0_opsz48.svg",
       },
     };
   },

@@ -128,7 +128,7 @@
                     <div class="text-center">
                       <!-- Reactive rank image -->
                       <img
-                        src="/assets/trophy.svg"
+                        :src="rankIcons[user.rank]"
                         class="img mt-2 mb-5 img-fluid gold-icon"
                         alt="Rank image"
                       />
@@ -245,7 +245,7 @@
                     <div class="text-center">
                       <img
                         :src="rankIcons[user.rank]"
-                        class="img-thumbnail mt-2 mb-5 img-fluid"
+                        class="mt-2 mb-5 img-fluid gold-icon"
                         alt="Rank image"
                       />
                     </div>
