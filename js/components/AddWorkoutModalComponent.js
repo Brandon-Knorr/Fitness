@@ -18,8 +18,11 @@ const AddWorkoutModalComponent = {
   },
 
   methods: {
-    autoSetCategory() {
-      this.newCategory = this.exerciseCategories[this.newExercise] || "";
+    autoSetCategory(event) {
+      const selectedOption = event.target.options[event.target.selectedIndex];
+      console.log(event.target);
+      const optgroup = selectedOption.closest("optgroup");
+      this.newCategory = optgroup ? optgroup.label : "";
     },
     addWorkout() {
       if (this.newExercise && this.newSets && this.newReps && this.newWeight) {
@@ -98,10 +101,10 @@ const AddWorkoutModalComponent = {
                     id="exercise-select"
                     name="exercise"
                     v-model="newExercise"
-                    @change="autoSetCategory"
+                    @change="autoSetCategory($event)"
                   >
                     <optgroup label="Strength">
-                      <option value="bench-press">Bench Press</option>
+                      <option value="bench-press" data-category="Strength">Bench Press</option>
                       <option value="squats">Squats</option>
                       <option value="deadlifts">Deadlifts</option>
                       <option value="overhead-press">Overhead Press</option>
