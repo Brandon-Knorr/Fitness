@@ -29,7 +29,7 @@ const FooterComponent = {
   //it should consist of one root element
   //you can reference data, props, methods, computed properties, and watch properties using {{}}
   template: `
-        <footer class="navbar bg-body-tertiary fixed-bottom">
+        <footer class="navbar fixed-bottom">
         <div class="container-fluid justify-content-center">
           <p>MyFit Journal | JavaScript 2 | Brandon Knorr | &copy;2025</p>
         </div>

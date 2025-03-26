@@ -71,7 +71,7 @@ const WorkoutListComponent = {
                       <div class="col-6">
                         <h4 class="d-flex mb-3 justify-content-between">
                           <span class="text-primary">Your Workouts</span>
-                          <span class="badge bg-primary rounded-pill"
+                          <span class="badge rounded-pill"
                             >{{ totalWorkouts }}</span
                           >
                         </h4>

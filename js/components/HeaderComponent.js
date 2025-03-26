@@ -12,12 +12,7 @@ const HeaderComponent = {
   //can be optional or required
   //objects and arrays are passed by reference
   //primitives are passed by value
-  props: {
-    myImgUrl: {
-      type: String,
-      default: "/assets/favicon-32x32.png",
-    },
-  },
+  props: {},
 
   //methods are usually events triggered by v-on
   methods: {},
@@ -35,10 +30,10 @@ const HeaderComponent = {
   //you can reference data, props, methods, computed properties, and watch properties using {{}}
   template: `
     <header class="sticky-top">
-        <nav class="navbar navbar-expand-md bg-body-tertiary">
+        <nav class="navbar navbar-expand-md">
           <div class="container-fluid">
             <a class="navbar-brand align-items-center" href="#"
-              ><img :src="myImgUrl" />MyFit Journal</a
+              ><i class="bi bi-journal-bookmark"></i> MyFit Journal</a
             >
           </div>
         </nav>
