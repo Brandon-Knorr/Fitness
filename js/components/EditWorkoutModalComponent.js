@@ -26,32 +26,23 @@ const EditWorkoutModalComponent = {
       this.editedCategory = optgroup ? optgroup.label : "";
     },
     editWorkout() {
-      if (
-        this.editedExercise &&
-        this.editedSets &&
-        this.editedReps &&
-        this.editedWeight
-      ) {
-        const updatedWorkout = {
-          name: this.editedExercise,
-          category: this.editedCategory,
-          sets: this.editedSets,
-          reps: this.editedReps,
-          weight: this.editedWeight,
-          duration: this.editedDuration || null,
-        };
+      const updatedWorkout = {
+        name: this.editedExercise,
+        category: this.editedCategory,
+        sets: this.editedSets,
+        reps: this.editedReps,
+        weight: this.editedWeight,
+        duration: this.editedDuration || null,
+      };
 
-        this.$emit("update-workout", updatedWorkout);
+      this.$emit("update-workout", updatedWorkout);
 
-        // Close the modal after saving changes
-        this.$nextTick(() => {
-          const editModal = bootstrap.Modal.getInstance(
-            document.getElementById("editModal")
-          );
-          if (editModal) {
-            editModal.hide();
-          }
-        });
+      // Close the modal
+      const editModal = bootstrap.Modal.getInstance(
+        document.getElementById("editModal")
+      );
+      if (editModal) {
+        editModal.hide();
       }
     },
   },

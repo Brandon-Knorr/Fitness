@@ -59,23 +59,25 @@ const WorkoutListComponent = {
     addWorkout(newWorkout) {
       this.workouts.push(newWorkout);
     },
-    editWorkout(index) {
-      this.selectedWorkout = { ...this.workouts[index] }; // Clone the workout to avoid direct mutation
+    handleEditWorkout({ index, workout }) {
+      this.selectedWorkout = { ...workout }; // Clone the workout to avoid direct mutation
       this.selectedWorkoutIndex = index;
 
-      // Trigger the modal
+      // Show the modal
       const editModal = new bootstrap.Modal(
         document.getElementById("editModal")
       );
       editModal.show();
     },
     updateWorkout(updatedWorkout) {
+      // Update the workout in the list
       if (this.selectedWorkoutIndex !== null) {
-        // Update the workout in the list
-        this.$set(this.workouts, this.selectedWorkoutIndex, updatedWorkout);
-        this.selectedWorkoutIndex = null;
-        this.selectedWorkout = null;
+        this.workouts.splice(this.selectedWorkoutIndex, 1, updatedWorkout);
       }
+
+      // Reset the selected workout
+      this.selectedWorkout = null;
+      this.selectedWorkoutIndex = null;
     },
   },
 
@@ -106,7 +108,7 @@ const WorkoutListComponent = {
                         :workout="workout"
                         :index="index"
                         @remove-workout="removeWorkout"
-                        @edit-workout="editWorkout"
+                        @edit-workout="handleEditWorkout"
                       ></workout-item-component>
                     </ul>
                   </div>

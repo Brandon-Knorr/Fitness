@@ -19,7 +19,7 @@ const WorkoutItemComponent = {
       this.$emit("remove-workout", this.index);
     },
     editWorkout() {
-      this.$emit("edit-workout", this.index); // Emit the edit event
+      this.$emit("edit-workout", { index: this.index, workout: this.workout }); // Emit the edit event
     },
   },
 
