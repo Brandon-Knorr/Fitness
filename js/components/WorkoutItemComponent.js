@@ -1,6 +1,15 @@
+import EditWorkoutModalComponent from "./EditWorkoutModalComponent.js";
+
 const WorkoutItemComponent = {
+  components: {
+    EditWorkoutModalComponent,
+  },
+
   data: function () {
-    return {};
+    return {
+      isEditModalVisible: false,
+      selectedWorkout: "",
+    };
   },
 
   props: {
@@ -15,18 +24,23 @@ const WorkoutItemComponent = {
   },
 
   methods: {
+    openModal() {
+      this.selectedWorkout = workout;
+      this.isEditModalVisible = true;
+    },
     removeWorkout() {
       this.$emit("remove-workout", this.index);
     },
     editWorkout() {
-      this.$emit("edit-workout", { index: this.index, workout: this.workout }); // Emit the edit event
+      console.log(this.index, this.workout);
+      this.$emit("editWorkout", { index: this.index, workout: this.workout }); // Emit the edit event
     },
   },
 
   computed: {},
 
   template: `
-     <li class="list-group-item d-flex justify-content-between lh-sm">
+    <li class="list-group-item d-flex justify-content-between lh-sm">
         <div>
             <h6 class="my-0">
             {{ workout.name }}
@@ -54,7 +68,7 @@ const WorkoutItemComponent = {
         <div class="d-grid gap-2 d-md-flex justify-content-end">
             <button
             class="btn btn-sm"
-            @click="editWorkout"
+            @click="editWorkout(index, workout)"
             >
             <i class="bi bi-pencil-square"></i>
             </button>

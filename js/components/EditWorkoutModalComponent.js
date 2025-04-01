@@ -1,7 +1,7 @@
 const EditWorkoutModalComponent = {
   data: function () {
     return {
-      editedExercise: this.workout.name || "",
+      editedExercise: this.workout.name,
       editedSets: this.workout.sets || "",
       editedReps: this.workout.reps || "",
       editedWeight: this.workout.weight || "",
@@ -16,6 +16,10 @@ const EditWorkoutModalComponent = {
     },
     workout: {
       type: Object,
+      required: true,
+    },
+    visible: {
+      type: Boolean,
       required: true,
     },
   },
@@ -34,29 +38,41 @@ const EditWorkoutModalComponent = {
         weight: this.editedWeight,
         duration: this.editedDuration || null,
       };
-
+      console.log("Emitting update-workout event:", updatedWorkout);
       this.$emit("update-workout", updatedWorkout);
 
       // Close the modal
-      const editModal = bootstrap.Modal.getInstance(
-        document.getElementById("editModal")
-      );
-      if (editModal) {
-        editModal.hide();
-      }
+      this.closeModal();
+    },
+    closeModal() {
+      this.$emit("close");
     },
   },
   computed: {},
-  watch: {},
+  watch: {
+    workout: {
+      immediate: true,
+      handler(newWorkout) {
+        if (newWorkout) {
+          this.editedExercise = newWorkout.name || "";
+          this.editedSets = newWorkout.sets || "";
+          this.editedReps = newWorkout.reps || "";
+          this.editedWeight = newWorkout.weight || "";
+          this.editedDuration = newWorkout.duration || "";
+          this.editedCategory = newWorkout.category || "";
+        }
+      },
+    },
+  },
   template: `
         <div
           class="modal fade"
           id="editModal"
-          data-bs-backdrop="static"
-          data-bs-keyboard="false"
+          :class="{ show: visible }"
+          :style="{ display: visible ? 'block' : 'none' }"
           tabindex="-1"
           aria-labelledby="editModalLabel"
-          aria-hidden="true"
+          aria-hidden="!visible"
         >
           <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -67,7 +83,7 @@ const EditWorkoutModalComponent = {
                 <button
                   type="button"
                   class="btn-close"
-                  data-bs-dismiss="modal"
+                  @click="closeModal"
                   aria-label="Close"
                 ></button>
               </div>
@@ -170,7 +186,7 @@ const EditWorkoutModalComponent = {
                 <button
                   type="button"
                   class="btn btn-secondary"
-                  data-bs-dismiss="modal"
+                  @click="closeModal"
                 >
                   Cancel
                 </button>

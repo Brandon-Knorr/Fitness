@@ -42,6 +42,7 @@ const WorkoutListComponent = {
       },
       selectedWorkout: null,
       selectedWorkoutIndex: null,
+      isEditModalVisible: false,
     };
   },
 
@@ -64,10 +65,7 @@ const WorkoutListComponent = {
       this.selectedWorkoutIndex = index;
 
       // Show the modal
-      const editModal = new bootstrap.Modal(
-        document.getElementById("editModal")
-      );
-      editModal.show();
+      this.isEditModalVisible = true;
     },
     updateWorkout(updatedWorkout) {
       // Update the workout in the list
@@ -78,6 +76,14 @@ const WorkoutListComponent = {
       // Reset the selected workout
       this.selectedWorkout = null;
       this.selectedWorkoutIndex = null;
+      this.isEditModalVisible = false;
+
+      this.resetModal();
+    },
+    resetModal() {
+      this.selectedWorkout = null;
+      this.selectedWorkoutIndex = null;
+      this.isEditModalVisible = false;
     },
   },
 
@@ -108,7 +114,7 @@ const WorkoutListComponent = {
                         :workout="workout"
                         :index="index"
                         @remove-workout="removeWorkout"
-                        @edit-workout="handleEditWorkout"
+                        @editWorkout="handleEditWorkout"
                       ></workout-item-component>
                     </ul>
                   </div>
@@ -121,8 +127,10 @@ const WorkoutListComponent = {
                   <!-- Include the EditWorkoutModalComponent -->
       <edit-workout-modal-component
         v-if="selectedWorkout"
+        :visible="isEditModalVisible"
         :workout="selectedWorkout"
         @update-workout="updateWorkout"
+        @close="isEditModalVisible = false"
       ></edit-workout-modal-component>
               </div>
   `,
