@@ -130,6 +130,7 @@ const WorkoutListComponent = {
                 <add-workout-modal-component
                   :visible="isAddModalVisible"
                   @add-workout="addWorkout"
+                  @close="closeAddWorkoutModal"
                   :exercise-categories="exerciseCategories">
                 </add-workout-modal-component>
 
