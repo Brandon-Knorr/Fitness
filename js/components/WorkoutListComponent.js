@@ -43,6 +43,7 @@ const WorkoutListComponent = {
       selectedWorkout: null,
       selectedWorkoutIndex: null,
       isEditModalVisible: false,
+      isAddModalVisible: false,
     };
   },
 
@@ -59,6 +60,12 @@ const WorkoutListComponent = {
     },
     addWorkout(newWorkout) {
       this.workouts.push(newWorkout);
+    },
+    openAddWorkoutModal() {
+      this.isAddModalVisible = true;
+    },
+    closeAddWorkoutModal() {
+      this.isAddModalVisible = false;
     },
     handleEditWorkout({ index, workout }) {
       this.selectedWorkout = { ...workout }; // Clone the workout to avoid direct mutation
@@ -119,7 +126,9 @@ const WorkoutListComponent = {
                     </ul>
                   </div>
                 </div>
+      
                 <add-workout-modal-component
+                  :visible="isAddModalVisible"
                   @add-workout="addWorkout"
                   :exercise-categories="exerciseCategories">
                 </add-workout-modal-component>

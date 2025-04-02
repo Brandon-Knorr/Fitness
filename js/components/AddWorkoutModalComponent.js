@@ -7,6 +7,7 @@ const AddWorkoutModalComponent = {
       newWeight: "",
       newDuration: "",
       newCategory: "",
+      isAddModalVisible: false,
     };
   },
 
@@ -14,6 +15,10 @@ const AddWorkoutModalComponent = {
     title: {
       type: String,
       default: "Add Workout",
+    },
+    visible: {
+      type: Boolean,
+      required: true,
     },
   },
 
@@ -44,19 +49,14 @@ const AddWorkoutModalComponent = {
         this.newDuration = "";
         this.newCategory = "";
 
-        this.$nextTick(() => {
-          const workoutModal = bootstrap.Modal.getInstance(
-            document.getElementById("staticBackdrop")
-          );
-          if (workoutModal) {
-            workoutModal.hide();
-          }
-          const workoutsTab = document.querySelector("#pills-workouts-tab");
-          if (workoutsTab) {
-            workoutsTab.click();
-          }
-        });
+        this.closeModal();
       }
+    },
+    closeModal() {
+      this.$emit("close");
+    },
+    openModal() {
+      this.isAddModalVisible = true;
     },
   },
 
@@ -68,11 +68,11 @@ const AddWorkoutModalComponent = {
          <div
           class="modal fade"
           id="staticBackdrop"
-          data-bs-backdrop="static"
-          data-bs-keyboard="false"
+          :class="{ show: visible }"
+          :style="{ display: visible ? 'block' : 'none' }"
           tabindex="-1"
           aria-labelledby="staticBackdropLabel"
-          aria-hidden="true"
+          aria-hidden="!visible"
         >
           <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -83,7 +83,7 @@ const AddWorkoutModalComponent = {
                 <button
                   type="button"
                   class="btn-close"
-                  data-bs-dismiss="modal"
+                  @click="closeModal"
                   aria-label="Close"
                 ></button>
               </div>
@@ -186,7 +186,7 @@ const AddWorkoutModalComponent = {
                 <button
                   type="button"
                   class="btn btn-secondary"
-                  data-bs-dismiss="modal"
+                  @click="closeModal"
                 >
                   Cancel
                 </button>

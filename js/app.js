@@ -59,6 +59,7 @@ const app = createApp({
         Elite:
           "/assets/military_tech_150dp_B89230_FILL0_wght400_GRAD0_opsz48.svg",
       },
+      isAddModalVisible: false,
     };
   },
 
@@ -69,8 +70,9 @@ const app = createApp({
   },
 
   methods: {
-    addWorkout() {
+    addWorkout(workout) {
       this.workouts.push(workout);
+      this.isAddModalVisible = false;
     },
     updateWeight(weight) {
       this.user.weight = weight;
@@ -94,6 +96,12 @@ const app = createApp({
       toast.innerText = message;
       document.body.appendChild(toast);
       setTimeout(() => toast.remove(), 3000);
+    },
+    openAddWorkoutModal() {
+      this.isAddModalVisible = true;
+    },
+    closeAddWorkoutModal() {
+      this.isAddModalVisible = false;
     },
   },
 });
