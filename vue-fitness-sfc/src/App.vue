@@ -1,11 +1,421 @@
-<script setup>
+<script>
+import HeaderComponent from "@/components/HeaderComponent.vue";
+import FooterComponent from "@/components/FooterComponent.vue";
+import ProgressbarComponent from "@/components/ProgressbarComponent.vue";
+import WorkoutListComponent from "@/components/WorkoutListComponent.vue";
+import AddWorkoutModalComponent from "@/components/AddWorkoutModalComponent.vue";
 
+export default {
+  components: {
+    HeaderComponent,
+    FooterComponent,
+    ProgressbarComponent,
+    WorkoutListComponent,
+    AddWorkoutModalComponent,
+  },
+
+  data() {
+    return {
+      user: {
+        name: "Brandon Knorr",
+        weight: 198,
+        rank: "Novice",
+      },
+      workouts: [
+        {
+          name: "Bench Press",
+          category: "Strength",
+          sets: 3,
+          reps: 10,
+          weight: 150,
+          duration: 25,
+        },
+        {
+          name: "Barbell Squat",
+          category: "Strength",
+          sets: 3,
+          reps: 8,
+          weight: 200,
+          duration: 5,
+        },
+        {
+          name: "Military Press",
+          category: "Strength",
+          sets: 3,
+          reps: 8,
+          weight: 100,
+          duration: 60,
+        },
+      ],
+      workoutsNeededForNextRank: 15,
+      rankIcons: {
+        Novice: "@/assets/trophy_150dp_B89230_FILL0_wght400_GRAD0_opsz48.svg",
+        Intermediate:
+          "@/assets/rewarded_ads_150dp_B89230_FILL0_wght400_GRAD0_opsz48 (1).svg",
+        Advanced:
+          "@/assets/social_leaderboard_150dp_B89230_FILL0_wght400_GRAD0_opsz48.svg",
+        Elite:
+          "@/assets/military_tech_150dp_B89230_FILL0_wght400_GRAD0_opsz48.svg",
+      },
+      isAddModalVisible: false,
+    };
+  },
+
+  computed: {
+    totalWorkouts() {
+      return this.workouts.length;
+    },
+  },
+
+  methods: {
+    addWorkout(workout) {
+      this.workouts.push(workout);
+      this.isAddModalVisible = false;
+    },
+    updateWeight(weight) {
+      this.user.weight = weight;
+      this.showToast("Weight updated successfully!");
+    },
+    updateWeightAndClose() {
+      if (this.newUserWeight) {
+        this.updateWeight(this.newUserWeight);
+        this.newUserWeight = "";
+        const weightModal = bootstrap.Modal.getInstance(
+          document.getElementById("staticBackdrop2")
+        );
+        if (weightModal) {
+          weightModal.hide();
+        }
+      }
+    },
+    showToast(message) {
+      const toast = document.getElementById("toast");
+      toast.className = "toast live-toast show text-white bg-success ";
+      toast.innerText = message;
+      document.body.appendChild(toast);
+      setTimeout(() => toast.remove(), 3000);
+    },
+    openAddWorkoutModal() {
+      this.isAddModalVisible = true;
+    },
+    closeAddWorkoutModal() {
+      this.isAddModalVisible = false;
+    },
+  },
+};
 </script>
 
 <template>
-  <p>Hey You!!!</p>
+  <!--Header Nav with Brand-->
+  <header-component title="Fitness Tracker"></header-component>
+
+  <!--Tabs Menu-->
+  <div class="container col-sm col-lg-6 col-md col-xl-6">
+    <div class="row">
+      <ul
+        class="nav nav-pills mb-5 mt-2 nav-justified"
+        id="pills-tab"
+        role="tablist"
+      >
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link active"
+            id="pills-home-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-home"
+            type="button"
+            role="tab"
+            aria-controls="pills-home"
+            aria-selected="true"
+          >
+            Home
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            id="pills-workouts-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-workouts"
+            type="button"
+            role="tab"
+            aria-controls="pills-workouts"
+            aria-selected="false"
+          >
+            Workouts
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            id="pills-rank-tab"
+            data-bs-toggle="pill"
+            data-bs-target="#pills-rank"
+            type="button"
+            role="tab"
+            aria-controls="pills-rank"
+            aria-selected="false"
+          >
+            Rank
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-center align-items-center w-100">
+    <div class="toast-container">
+      <div id="toast"></div>
+    </div>
+  </div>
+  <!--Tab Contents-->
+  <div class="container">
+    <div class="row">
+      <div class="tab-content" id="pills-tabContent">
+        <!--Tab Content For HOME-->
+        <div
+          class="tab-pane fade show active"
+          id="pills-home"
+          role="tabpanel"
+          aria-labelledby="pills-home-tab"
+          tabindex="0"
+        >
+          <!--Image Container-->
+          <div class="container mt-5 mb-0">
+            <div class="row">
+              <div class="col"></div>
+              <div class="col-4">
+                <div class="text-center">
+                  <!-- Reactive rank image -->
+                  <img
+                    :src="rankIcons[user.rank]"
+                    class="img mt-2 mb-5 img-fluid gold-icon"
+                    alt="Rank image"
+                  />
+                </div>
+              </div>
+              <div class="col"></div>
+            </div>
+          </div>
+
+          <!--User Info Container-->
+          <div class="container-sm">
+            <div class="row justify-content-center">
+              <div class="col-sm-8">
+                <div class="container mb-5">
+                  <div class="row m-1 justify-content-center">
+                    <div class="col-md-4 text-end">Profile:</div>
+                    <div class="col-md-4">{{ user.name }}</div>
+                  </div>
+                  <div class="row m-1 justify-content-center">
+                    <div class="col-md-4 text-end">Weight:</div>
+                    <div class="col-md-4">{{ user.weight }} lbs</div>
+                  </div>
+                  <div class="row m-1 justify-content-center">
+                    <div class="col-md-4 text-end">Rank:</div>
+                    <div class="col-md-4">{{ user.rank }}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--Progress bar for rank up-->
+          <progressbar-component
+            title="Progress Until Next Rank"
+            :workoutsNeededForNextRank="workOutsNeededForNextRank"
+            :totalWorkouts="totalWorkOuts"
+            :workouts="workouts"
+          ></progressbar-component>
+          <span class="container mb-4"></span>
+
+          <!--Button to add a workout from homepage-->
+          <div class="container mt-5">
+            <div class="row justify-content-center">
+              <div class="col-4 mx-auto d-grid">
+                <button
+                  class="btn btn-primary shadow"
+                  @click="openAddWorkoutModal"
+                >
+                  Add Workout
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--Tab Content For WORKOUTS-->
+        <div
+          class="tab-pane fade"
+          id="pills-workouts"
+          role="tabpanel"
+          aria-labelledby="pills-workouts-tab"
+          tabindex="1"
+        >
+          <!--Workout List Component-->
+          <workout-list-component
+            :workouts="workouts"
+            @removeWorkout="removeWorkout"
+            @addWorkout="addWorkout"
+            @editWorkout="updateWorkout"
+          >
+          </workout-list-component>
+
+          <div class="container mt-3">
+            <div class="row justify-content-center">
+              <div class="col-4 mx-auto d-grid">
+                <button
+                  class="btn btn-primary shadow"
+                  data-bs-toggle="modal"
+                  data-bs-target="#staticBackdrop2"
+                >
+                  Update Weight
+                </button>
+                <br />
+                <button
+                  class="btn btn-primary shadow"
+                  @click="openAddWorkoutModal"
+                >
+                  Add Workout
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--Tab Content For RANK-->
+        <div
+          class="tab-pane fade"
+          id="pills-rank"
+          role="tabpanel"
+          aria-labelledby="pills-rank-tab"
+          tabindex="2"
+        >
+          <!--Image Container-->
+          <div class="container mt-5 mb-0">
+            <div class="row">
+              <div class="col"></div>
+              <div class="col-4">
+                <div class="text-center">
+                  <img
+                    :src="rankIcons[user.rank]"
+                    class="mt-2 mb-5 img-fluid gold-icon"
+                    alt="Rank image"
+                  />
+                </div>
+              </div>
+              <div class="col"></div>
+            </div>
+          </div>
+
+          <div class="container">
+            <div class="row mb-5"></div>
+          </div>
+
+          <!--User Rank Info Card-->
+          <div class="container-sm">
+            <div class="row justify-content-center">
+              <div class="col-4 col-md-6 col-lg-6 col-sm">
+                <div class="container mb-5">
+                  <div class="row justify-content-center align-items-center">
+                    <div class="col-sm-8 p-1 text-end">
+                      <p>Workouts Completed:</p>
+                    </div>
+                    <div class="col">
+                      <p>{{ totalWorkouts }}</p>
+                    </div>
+                  </div>
+                  <div class="row justify-content-center align-items-center">
+                    <div class="col-sm-8 p-1 text-end">
+                      <p>Workouts Til Next Rank:</p>
+                    </div>
+                    <div class="col">
+                      <p>{{ workoutsNeededForNextRank }}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--Progress Bar Container-->
+          <progressbar-component
+            title="Progress Until Next Rank"
+            :workoutsNeededForNextRank="workOutsNeededForNextRank"
+            :totalWorkouts="totalWorkOuts"
+            :workouts="workouts"
+          ></progressbar-component>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--WORKOUT FORM MODAL-->
+  <add-workout-modal-component
+    :visible="isAddModalVisible"
+    @close="closeAddWorkoutModal"
+    @add-Workout="addWorkout"
+    :exercise-categories="exerciseCategories"
+  ></add-workout-modal-component>
+
+  <!--EDIT WEIGHT MODAL-->
+  <div
+    class="modal fade"
+    id="staticBackdrop2"
+    data-bs-backdrop="static"
+    data-bs-keyboard="false"
+    tabindex="-1"
+    aria-labelledby="staticBackdropLabel2"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel2">
+            Log New Weight
+          </h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <form id="weightForm" @submit.prevent="updateWeight(newUserWeight)">
+            <label for="weightLog" class="form-label mb-1"
+              >Current weight:</label
+            >
+            <input
+              type="number"
+              id="weightLog"
+              v-model="newUserWeight"
+              class="form-control"
+            />
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Cancel
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            @click="updateWeightAndClose"
+          >
+            Update Weight
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Footer-->
+  <footer-component title="Fitness Tracker"></footer-component>
 </template>
 
-<style scoped>
-
-</style>
+<style></style>
