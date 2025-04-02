@@ -1,0 +1,71 @@
+// variable overrides 
+
+$blue:    #284c77;
+$red:     #a30300;
+$gray-600: #dad2da;
+$green:   #1e3f20;
+$gold: #bc9c4e;
+
+$primary:       $green;
+$success:       $blue;
+$info:          $gold;
+$danger:        $red;
+
+
+$border-radius: 0; // makes all the corners across the app sharp
+$border-radius-sm: 0;
+$border-radius-md: 0;
+$border-radius-lg: 0;
+$border-radius-xl: 0;
+$border-radius-xxl: 0;
+
+$progress-bar-bg: $success; 
+
+//imports
+@import 'bootstrap/scss/bootstrap';
+@import 'fitness';
+
+
+//custom styles
+body {
+    background-color: $green-300;
+}
+
+footer.navbar {
+    background-color: $primary;
+    color: $light;
+}
+
+.navbar {
+    background-color: $primary;
+}
+
+.navbar-brand {
+    color: $light;
+}
+
+.btn-primary {
+    background-color: $info;
+    color: $primary;
+    border-color: $primary;
+    border-radius: 15px;
+}
+
+.badge {
+    background-color: $success;
+}
+
+.progress {
+    color: $light;
+}
+
+.tab-pane {
+    background-color: $light;
+    padding: 10px;
+    padding-bottom: 20px;
+}
+
+.gold-icon {
+    color: yellow;
+    min-height: 100px;
+}
