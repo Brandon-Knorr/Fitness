@@ -1,4 +1,6 @@
 <script>
+import { RANK_ORDER } from "@/constants/ranks";
+
 export default {
   name: "ProgressbarComponent",
   data: function () {
@@ -32,10 +34,9 @@ export default {
   //methods are usually events triggered by v-on
   methods: {
     rankUp() {
-      const ranks = ["Novice", "Intermediate", "Advanced", "Elite"];
-      let currentIndex = ranks.indexOf(this.user.rank);
-      if (currentIndex < ranks.length - 1) {
-        this.user.rank = ranks[currentIndex + 1];
+      let currentIndex = RANK_ORDER.indexOf(this.user.rank);
+      if (currentIndex < RANK_ORDER.length - 1) {
+        this.user.rank = RANK_ORDER[currentIndex + 1];
       }
     },
   },
