@@ -5,6 +5,7 @@ import ProgressbarComponent from "@/components/ProgressbarComponent.vue";
 import WorkoutListComponent from "@/components/WorkoutListComponent.vue";
 import AddWorkoutModalComponent from "@/components/AddWorkoutModalComponent.vue";
 import { RANKS } from "@/constants/ranks";
+import { WORKOUTS_NEEDED_FOR_NEXT_RANK } from "@/constants/rankThreshold";
 
 export default {
   components: {
@@ -48,7 +49,7 @@ export default {
           duration: 60,
         },
       ],
-      workoutsNeededForNextRank: 15,
+      WORKOUTS_NEEDED_FOR_NEXT_RANK,
       rankIcons: {
         [RANKS.NOVICE]:
           "../public/trophy_150dp_B89230_FILL0_wght400_GRAD0_opsz48.svg",
@@ -225,7 +226,7 @@ export default {
           <!--Progress bar for rank up-->
           <progressbar-component
             title="Progress Until Next Rank"
-            :workoutsNeededForNextRank="workOutsNeededForNextRank"
+            :workoutsNeededForNextRank="WORKOUTS_NEEDED_FOR_NEXT_RANK"
             :totalWorkouts="totalWorkOuts"
             :workouts="workouts"
           ></progressbar-component>
@@ -332,7 +333,7 @@ export default {
                       <p>Workouts Til Next Rank:</p>
                     </div>
                     <div class="col">
-                      <p>{{ workoutsNeededForNextRank }}</p>
+                      <p>{{ WORKOUTS_NEEDED_FOR_NEXT_RANK }}</p>
                     </div>
                   </div>
                 </div>
@@ -343,7 +344,7 @@ export default {
           <!--Progress Bar Container-->
           <progressbar-component
             title="Progress Until Next Rank"
-            :workoutsNeededForNextRank="workOutsNeededForNextRank"
+            :workoutsNeededForNextRank="WORKOUTS_NEEDED_FOR_NEXT_RANK"
             :totalWorkouts="totalWorkOuts"
             :workouts="workouts"
           ></progressbar-component>

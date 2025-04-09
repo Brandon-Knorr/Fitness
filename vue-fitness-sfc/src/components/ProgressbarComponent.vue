@@ -1,5 +1,6 @@
 <script>
 import { RANKS, RANK_ORDER } from "@/constants/ranks";
+import { WORKOUTS_NEEDED_FOR_NEXT_RANK } from "@/constants/rankThreshold";
 
 export default {
   name: "ProgressbarComponent",
@@ -10,6 +11,7 @@ export default {
         weight: 198,
         rank: RANKS.NOVICE,
       },
+      WORKOUTS_NEEDED_FOR_NEXT_RANK,
     };
   },
   //props Data that are passed into the component
@@ -21,9 +23,8 @@ export default {
       type: String,
       default: "Progress Until Next Rank",
     },
-    workOutsNeededForNextRank: {
+    WORKOUTS_NEEDED_FOR_NEXT_RANK: {
       type: Number,
-      default: 15,
     },
     workouts: {
       type: Array,
@@ -47,7 +48,7 @@ export default {
   computed: {
     progress() {
       const percentage =
-        (this.workouts.length / this.workOutsNeededForNextRank) * 100;
+        (this.workouts.length / this.WORKOUTS_NEEDED_FOR_NEXT_RANK) * 100;
       return Math.round(percentage);
     },
   },
