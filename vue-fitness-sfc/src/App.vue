@@ -50,12 +50,13 @@ export default {
       ],
       workoutsNeededForNextRank: 15,
       rankIcons: {
-        Novice: "../public/trophy_150dp_B89230_FILL0_wght400_GRAD0_opsz48.svg",
-        Intermediate:
+        [RANKS.NOVICE]:
+          "../public/trophy_150dp_B89230_FILL0_wght400_GRAD0_opsz48.svg",
+        [RANKS.INTERMEDIATE]:
           "../public/rewarded_ads_150dp_B89230_FILL0_wght400_GRAD0_opsz48 (1).svg",
-        Advanced:
+        [RANKS.ADVANCED]:
           "../public/social_leaderboard_150dp_B89230_FILL0_wght400_GRAD0_opsz48.svg",
-        Elite:
+        [RANKS.ELITE]:
           "../public/military_tech_150dp_B89230_FILL0_wght400_GRAD0_opsz48.svg",
       },
       isAddModalVisible: false,
