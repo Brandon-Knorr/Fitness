@@ -1,4 +1,5 @@
 <script>
+import Workout from "@/models/WorkoutModel";
 export default {
   name: "AddWorkoutModalComponent",
   return: {
@@ -31,14 +32,15 @@ export default {
     },
     addWorkout() {
       if (this.newExercise && this.newSets && this.newReps && this.newWeight) {
-        const newWorkout = {
+        // Create a new Workout instance
+        const newWorkout = new Workout({
           name: this.newExercise,
           category: this.newCategory,
-          sets: this.newSets,
-          reps: this.newReps,
-          weight: this.newWeight,
-          duration: this.newDuration || null,
-        };
+          sets: parseInt(this.newSets),
+          reps: parseInt(this.newReps),
+          weight: parseInt(this.newWeight),
+          duration: parseInt(this.newDuration) || 0,
+        });
 
         this.$emit("add-workout", newWorkout);
 

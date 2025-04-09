@@ -2,6 +2,7 @@
 import EditWorkoutModalComponent from "@/components/EditWorkoutModalComponent.vue";
 import AddWorkoutModalComponent from "@/components/AddWorkoutModalComponent.vue";
 import WorkoutItemComponent from "@/components/WorkoutItemComponent.vue";
+import Workout from "@/models/WorkoutModel";
 export default {
   name: "WorkoutListComponent",
   components: {
@@ -59,7 +60,8 @@ export default {
     removeWorkout(index) {
       this.workouts.splice(index, 1);
     },
-    addWorkout(newWorkout) {
+    addWorkout(newWorkoutData) {
+      const newWorkout = new Workout(newWorkoutData);
       this.workouts.push(newWorkout);
     },
     openAddWorkoutModal() {
@@ -75,17 +77,12 @@ export default {
       // Show the modal
       this.isEditModalVisible = true;
     },
-    updateWorkout(updatedWorkout) {
+    updateWorkout(updatedWorkoutData) {
       // Update the workout in the list
+      const updatedWorkout = new Workout(updatedWorkoutData);
       if (this.selectedWorkoutIndex !== null) {
         this.workouts.splice(this.selectedWorkoutIndex, 1, updatedWorkout);
       }
-
-      // Reset the selected workout
-      this.selectedWorkout = null;
-      this.selectedWorkoutIndex = null;
-      this.isEditModalVisible = false;
-
       this.resetModal();
     },
     resetModal() {

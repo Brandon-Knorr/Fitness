@@ -6,6 +6,7 @@ import WorkoutListComponent from "@/components/WorkoutListComponent.vue";
 import AddWorkoutModalComponent from "@/components/AddWorkoutModalComponent.vue";
 import { RANKS } from "@/constants/ranks";
 import { WORKOUTS_NEEDED_FOR_NEXT_RANK } from "@/constants/rankThreshold";
+import Workout from "./models/WorkoutModel";
 
 export default {
   components: {
@@ -71,8 +72,9 @@ export default {
   },
 
   methods: {
-    addWorkout(workout) {
-      this.workouts.push(workout);
+    addWorkout(workoutData) {
+      const newWorkout = new Workout(workoutData);
+      this.workouts.push(newWorkout);
       this.isAddModalVisible = false;
     },
     updateWeight(weight) {

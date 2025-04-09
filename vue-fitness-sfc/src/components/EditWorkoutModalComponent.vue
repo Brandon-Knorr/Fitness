@@ -1,4 +1,6 @@
 <script>
+import Workout from "@/models/WorkoutModel";
+
 export default {
   name: "EditWorkoutModalComponent",
   data: function () {
@@ -32,15 +34,15 @@ export default {
       this.editedCategory = optgroup ? optgroup.label : "";
     },
     editWorkout() {
-      const updatedWorkout = {
+      const updatedWorkout = new Workout({
         name: this.editedExercise,
         category: this.editedCategory,
-        sets: this.editedSets,
-        reps: this.editedReps,
-        weight: this.editedWeight,
-        duration: this.editedDuration || null,
-      };
-      console.log("Emitting update-workout event:", updatedWorkout);
+        sets: parseInt(this.editedSets),
+        reps: parseInt(this.editedReps),
+        weight: parseInt(this.editedWeight),
+        duration: parseInt(this.editedDuration) || 0,
+      });
+
       this.$emit("update-workout", updatedWorkout);
 
       // Close the modal
