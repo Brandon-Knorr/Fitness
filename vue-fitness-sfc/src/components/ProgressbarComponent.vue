@@ -1,5 +1,5 @@
 <script>
-import { RANK_ORDER } from "@/constants/ranks";
+import { RANKS, RANK_ORDER } from "@/constants/ranks";
 
 export default {
   name: "ProgressbarComponent",
@@ -8,7 +8,7 @@ export default {
       user: {
         name: "Brandon Knorr",
         weight: 198,
-        rank: "Novice",
+        rank: RANKS.NOVICE,
       },
     };
   },
