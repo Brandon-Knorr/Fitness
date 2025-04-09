@@ -4,6 +4,7 @@ import FooterComponent from "@/components/FooterComponent.vue";
 import ProgressbarComponent from "@/components/ProgressbarComponent.vue";
 import WorkoutListComponent from "@/components/WorkoutListComponent.vue";
 import AddWorkoutModalComponent from "@/components/AddWorkoutModalComponent.vue";
+import { RANKS } from "@/constants/ranks";
 
 export default {
   components: {
@@ -19,7 +20,7 @@ export default {
       user: {
         name: "Brandon Knorr",
         weight: 198,
-        rank: "Novice",
+        rank: RANKS.NOVICE,
       },
       workouts: [
         {
