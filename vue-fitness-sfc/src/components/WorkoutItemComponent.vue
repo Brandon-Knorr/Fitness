@@ -1,5 +1,6 @@
 <script>
 import EditWorkoutModalComponent from "@/components/EditWorkoutModalComponent.vue";
+import WorkoutCollection from "@/models/WorkoutCollection";
 export default {
   name: "WorkoutItemComponent",
   components: {
@@ -10,6 +11,7 @@ export default {
     return {
       isEditModalVisible: false,
       selectedWorkout: "",
+      WorkoutCollection: new WorkoutCollection(),
     };
   },
 
@@ -22,6 +24,10 @@ export default {
       type: Number,
       required: true,
     },
+    WorkoutCollection: {
+      type: Object,
+      required: true,
+    },
   },
 
   methods: {
@@ -30,10 +36,12 @@ export default {
       this.isEditModalVisible = true;
     },
     removeWorkout() {
+      this.WorkoutCollection.removeWorkout(this.index);
       this.$emit("remove-workout", this.index);
     },
     editWorkout() {
       console.log(this.index, this.workout);
+      this.WorkoutCollection.updateWorkout(this.index, this.workout);
       this.$emit("editWorkout", { index: this.index, workout: this.workout }); // Emit the edit event
     },
   },

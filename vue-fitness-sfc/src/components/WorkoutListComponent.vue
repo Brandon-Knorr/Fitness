@@ -52,13 +52,13 @@ export default {
   props: {
     workouts: {
       type: Array,
-      default: () => [],
+      required: true,
     },
   },
 
   methods: {
     removeWorkout(index) {
-      this.workouts.splice(index, 1);
+      this.$emit("removeWorkout", index);
     },
     addWorkout(newWorkoutData) {
       const newWorkout = new Workout(newWorkoutData);
@@ -71,32 +71,11 @@ export default {
       this.isAddModalVisible = false;
     },
     handleEditWorkout({ index, workout }) {
-      this.selectedWorkout = { ...workout }; // Clone the workout to avoid direct mutation
-      this.selectedWorkoutIndex = index;
-
-      // Show the modal
-      this.isEditModalVisible = true;
-    },
-    updateWorkout(updatedWorkoutData) {
-      // Update the workout in the list
-      const updatedWorkout = new Workout(updatedWorkoutData);
-      if (this.selectedWorkoutIndex !== null) {
-        this.workouts.splice(this.selectedWorkoutIndex, 1, updatedWorkout);
-      }
-      this.resetModal();
-    },
-    resetModal() {
-      this.selectedWorkout = null;
-      this.selectedWorkoutIndex = null;
-      this.isEditModalVisible = false;
+      this.$emit("editWorkout", index);
     },
   },
 
-  computed: {
-    totalWorkouts() {
-      return this.workouts.length;
-    },
-  },
+  computed: {},
 };
 </script>
 

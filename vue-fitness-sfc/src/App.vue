@@ -6,7 +6,7 @@ import WorkoutListComponent from "@/components/WorkoutListComponent.vue";
 import AddWorkoutModalComponent from "@/components/AddWorkoutModalComponent.vue";
 import { RANKS } from "@/constants/ranks";
 import { WORKOUTS_NEEDED_FOR_NEXT_RANK } from "@/constants/rankThreshold";
-import Workout from "./models/WorkoutModel";
+import WorkoutCollection from "./models/WorkoutCollection";
 
 export default {
   components: {
@@ -24,7 +24,7 @@ export default {
         weight: 198,
         rank: RANKS.NOVICE,
       },
-      workouts: [
+      WorkoutCollection: new WorkoutCollection([
         {
           name: "Bench Press",
           category: "Strength",
@@ -49,7 +49,7 @@ export default {
           weight: 100,
           duration: 60,
         },
-      ],
+      ]),
       WORKOUTS_NEEDED_FOR_NEXT_RANK,
       rankIcons: {
         [RANKS.NOVICE]:
@@ -67,15 +67,23 @@ export default {
 
   computed: {
     totalWorkouts() {
-      return this.workouts.length;
+      return this.WorkoutCollection.getTotalWorkouts();
+    },
+    workouts() {
+      return this.WorkoutCollection.getAllWorkouts();
     },
   },
 
   methods: {
     addWorkout(workoutData) {
-      const newWorkout = new Workout(workoutData);
-      this.workouts.push(newWorkout);
+      this.WorkoutCollection.addWorkout(workoutData);
       this.isAddModalVisible = false;
+    },
+    removeWorkout(index) {
+      this.WorkoutCollection.removeWorkout(index);
+    },
+    updateWorkout({ index, workout }) {
+      this.WorkoutCollection.updateWorkout(index, workout);
     },
     updateWeight(weight) {
       this.user.weight = weight;
