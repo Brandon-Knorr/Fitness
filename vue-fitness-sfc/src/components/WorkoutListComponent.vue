@@ -3,6 +3,7 @@ import EditWorkoutModalComponent from "@/components/EditWorkoutModalComponent.vu
 import AddWorkoutModalComponent from "@/components/AddWorkoutModalComponent.vue";
 import WorkoutItemComponent from "@/components/WorkoutItemComponent.vue";
 import Workout from "@/models/WorkoutModel";
+import WorkoutCollection from "@/models/WorkoutCollection";
 export default {
   name: "WorkoutListComponent",
   components: {
@@ -50,19 +51,19 @@ export default {
   },
 
   props: {
-    workouts: {
-      type: Array,
+    WorkoutCollection: {
+      type: Object,
       required: true,
     },
   },
 
   methods: {
     removeWorkout(index) {
-      this.$emit("removeWorkout", index);
+      this.WorkoutCollection.removeWorkout(index);
     },
     addWorkout(newWorkoutData) {
-      const newWorkout = new Workout(newWorkoutData);
-      this.workouts.push(newWorkout);
+      this.WorkoutCollection.addWorkout(newWorkoutData);
+      this.isAddModalVisible = false;
     },
     openAddWorkoutModal() {
       this.isAddModalVisible = true;
@@ -71,11 +72,27 @@ export default {
       this.isAddModalVisible = false;
     },
     handleEditWorkout({ index, workout }) {
-      this.$emit("editWorkout", index);
+      this.selectedWorkout = workout;
+      this.selectedWorkoutIndex = index;
+      this.isEditModalVisible = true;
+    },
+    updateWorkout(updatedWorkoutData) {
+      this.WorkoutCollection.updateWorkout(
+        this.selectedWorkoutIndex,
+        updatedWorkoutData
+      );
+      this.isEditModalVisible = false;
     },
   },
 
-  computed: {},
+  computed: {
+    workouts() {
+      return this.WorkoutCollection.getAllWorkouts();
+    },
+    totalWorkouts() {
+      return this.WorkoutCollection.getTotalWorkouts();
+    },
+  },
 };
 </script>
 

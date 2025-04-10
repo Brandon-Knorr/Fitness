@@ -267,7 +267,7 @@ export default {
         >
           <!--Workout List Component-->
           <workout-list-component
-            :workouts="workouts"
+            :WorkoutCollection="WorkoutCollection"
             @removeWorkout="removeWorkout"
             @addWorkout="addWorkout"
             @editWorkout="updateWorkout"
