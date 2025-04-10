@@ -2,7 +2,11 @@ import Workout from "./WorkoutModel";
 
 export default class WorkoutCollection {
   constructor(workouts = []) {
-    this.workouts = workouts.map((workout) => new Workout(workout));
+    this.workouts = [];
+    for (let i = 0; i < workouts.length; i++) {
+      const workout = new Workout(workouts[i]);
+      this.workouts.push(workout);
+    }
   }
 
   addWorkout(workoutData) {
@@ -13,7 +17,9 @@ export default class WorkoutCollection {
 
   removeWorkout(index) {
     if (index >= 0 && index < this.workouts.length) {
-      return this.workouts.splice(index, 1)[0];
+      const removedWorkout = this.workouts[index];
+      this.workouts.splice(index, 1);
+      return removedWorkout;
     }
     return null;
   }
@@ -21,14 +27,18 @@ export default class WorkoutCollection {
   updateWorkout(index, updatedWorkoutData) {
     if (index >= 0 && index < this.workouts.length) {
       const updatedWorkout = new Workout(updatedWorkoutData);
-      this.workouts.splice(index, 1, updatedWorkout);
+      this.workouts[index] = updatedWorkout;
       return updatedWorkout;
     }
     return null;
   }
 
   getAllWorkouts() {
-    return this.workouts;
+    const workoutsCopy = [];
+    for (let i = 0; i < this.workouts.length; i++) {
+      workoutsCopy.push(this.workouts[i]);
+    }
+    return workoutsCopy;
   }
 
   getTotalWorkouts() {
