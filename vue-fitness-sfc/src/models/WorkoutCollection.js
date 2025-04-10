@@ -1,3 +1,4 @@
+import { WORKOUTS_NEEDED_FOR_NEXT_RANK } from "@/constants/rankThreshold";
 import Workout from "./WorkoutModel";
 
 export default class WorkoutCollection {
@@ -43,5 +44,9 @@ export default class WorkoutCollection {
 
   getTotalWorkouts() {
     return this.workouts.length;
+  }
+
+  getRemainingWorkoutsForNextRank() {
+    return WORKOUTS_NEEDED_FOR_NEXT_RANK - this.workouts.length;
   }
 }

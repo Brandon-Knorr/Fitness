@@ -24,10 +24,6 @@ export default {
       type: Number,
       required: true,
     },
-    WorkoutCollection: {
-      type: Object,
-      required: true,
-    },
   },
 
   methods: {

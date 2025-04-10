@@ -26,7 +26,6 @@ export default {
   methods: {
     autoSetCategory(event) {
       const selectedOption = event.target.options[event.target.selectedIndex];
-      console.log(event.target);
       const optgroup = selectedOption.closest("optgroup");
       this.newCategory = optgroup ? optgroup.label : "";
     },
@@ -119,7 +118,7 @@ export default {
               <optgroup label="Mobility">
                 <option value="Yoga-flow">Yoga Flow</option>
                 <option value="Dynamic-stretching">Dynamic Stretching</option>
-                <option value="oam-rolling">Foam Rolling</option>
+                <option value="Foam-rolling">Foam Rolling</option>
                 <option value="Joint-mobility">Joint Mobility Exercises</option>
                 <option value="Static-stretching">Static Stretching</option>
               </optgroup>
